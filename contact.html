@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - L'Objectif de Gabriel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>L'Objectif de Gabriel</h1>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="rdv.html">Prendre RDV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact">
+            <h2>Contactez-nous</h2>
+            <p>Envoyez-nous un message pour discuter de votre projet photo.</p>
+            <form action="https://formspree.io/f/TON_FORM_ID" method="POST"> <!-- Remplace TON_FORM_ID par celui de Formspree après inscription -->
+                <input type="email" name="email" placeholder="Votre email" required>
+                <input type="text" name="nom" placeholder="Votre nom" required>
+                <textarea name="message" placeholder="Votre message (détails du projet)" rows="5" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+            <!-- Style inspiré d'une photo : formulaire minimaliste avec fond bleu techno -->
+            <div class="contact-img">
+                <img src="https://via.placeholder.com/400x300/0a2540/ffffff?text=Contact+Photo" alt="Style contact">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 L'Objectif de Gabriel. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
