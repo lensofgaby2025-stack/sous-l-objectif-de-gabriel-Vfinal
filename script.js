@@ -1,11 +1,5 @@
-// Calendrier interactif (génère le mois courant, style agenda foncé)
+// Script vide pour l'instant, car plus de calendrier interactif.
+// Tu pourras ajouter du JS ici si besoin (ex. pour animations avancées).
 document.addEventListener('DOMContentLoaded', function() {
-    const calendar = document.getElementById('calendar');
-    if (calendar) {
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = now.getMonth();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const firstDay = new Date(year, month, 1).getDay();
-
-        let table = '<table><tr><th>Lun</th><th
+    // Rien pour le moment
+});
