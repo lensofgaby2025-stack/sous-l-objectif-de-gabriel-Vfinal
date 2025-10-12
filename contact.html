@@ -24,7 +24,7 @@
         <section class="contact">
             <h2>Contactez-nous</h2>
             <p>Envoyez-nous un message pour discuter de votre projet photo.</p>
-            <form action="https://formspree.io/f/TON_FORM_ID" method="POST"> <!-- Remplace TON_FORM_ID par celui de Formspree -->
+            <form action="https://formspree.io/f/xrbyoeyz" method="POST">
                 <input type="email" name="email" placeholder="Votre email" required>
                 <input type="text" name="nom" placeholder="Votre nom" required>
                 <input type="text" name="lieu" placeholder="Lieu du projet (ex. ville ou salle)" required>
@@ -40,7 +40,6 @@
                 
                 <textarea name="message" placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..." rows="5" required></textarea>
                 
-                <!-- Nouveau : Sondage avec étoiles (notation 1-5) -->
                 <label>Notez votre intérêt pour nos services (étoiles) :</label>
                 <div class="star-rating">
                     <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 étoiles">★</label>
@@ -52,7 +51,6 @@
                 
                 <button type="submit" class="btn">Envoyer</button>
             </form>
-            <!-- Style inspiré d'une photo : formulaire minimaliste avec fond bleu techno -->
             <div class="contact-img">
                 <img src="https://via.placeholder.com/400x300/0a2540/ffffff?text=Contact+Photo" alt="Style contact">
             </div>
@@ -63,6 +61,6 @@
         <p>&copy; 2023 L'Objectif de Gabriel. Tous droits réservés.</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Inclut le JS pour les étoiles interactives -->
+    <script src="script.js"></script>
 </body>
 </html>
