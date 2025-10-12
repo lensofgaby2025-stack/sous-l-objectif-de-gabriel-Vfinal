@@ -1,81 +1,61 @@
-/* Styles mis à jour pour sondage étoiles (plus naturel) et barre de progression */
-.star-rating {
-    display: flex;
-    flex-direction: row-reverse; /* Sélection de droite à gauche */
-    justify-content: center;
-    gap: 0.3rem; /* Espace plus naturel entre étoiles */
-    margin: 1rem 0;
-    font-size: 2.2rem; /* Taille un peu plus grande pour naturel */
-    cursor: pointer;
-    font-family: 'Arial', sans-serif; /* Police plus douce */
-}
-
-.star-rating input[type="radio"] {
-    display: none; /* Cache radios */
-}
-
-.star-rating label {
-    color: #a5b4fc; /* Bleu clair techno pour étoiles vides (outline naturel) */
-    transition: all 0.3s ease; /* Animation fluide */
+* {
     margin: 0;
-    padding: 0.2rem;
-    position: relative; /* Pour pseudo-éléments si besoin */
-    text-shadow: none; /* Pas de glow par défaut */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Étoiles remplies sur hover/sélection (plus naturel : dégradé or doux) */
-.star-rating input[type="radio"]:checked ~ label,
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: #fbbf24; /* Or doux/natural (au lieu de jaune vif) */
-    text-shadow: 0 0 8px rgba(251, 191, 36, 0.3); /* Glow subtil et naturel */
-    transform: scale(1.1); /* Légère agrandissement pour feedback */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 50%, #3730a3 100%);
+    color: #ffffff;
+    line-height: 1.6;
+    animation: fadeIn 1s ease-in;
 }
 
-/* Étoiles sélectionnées (pleines) */
-.star-rating input[type="radio"]:checked ~ label {
-    color: #f59e0b; /* Or plus foncé pour rempli */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Barre de progression (nouvelle) */
-.progress-container {
-    margin: 1rem 0;
+main section {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+    background: rgba(10, 37, 64, 0.95);
+    padding: 1rem;
+    position: fixed;
     width: 100%;
-    max-width: 300px; /* Largeur centrée */
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0; /* Cachée par défaut */
-    transition: opacity 0.3s ease;
+    top: 0;
+    z-index: 10;
 }
 
-.progress-container.visible {
-    opacity: 1; /* Apparaît sur sélection */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.progress-bar {
-    background: rgba(255, 255, 255, 0.1); /* Fond bleu techno transparent */
-    border-radius: 10px;
-    height: 8px; /* Hauteur fine et naturelle */
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+nav h1 {
+    color: #ffffff;
 }
 
-.progress-fill {
-    background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%); /* Dégradé or naturel */
-    height: 100%;
-    width: 0%; /* Commence à 0 */
-    border-radius: 10px;
-    transition: width 0.5s ease; /* Animation fluide de remplissage */
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4); /* Glow subtil sur la barre */
+nav ul {
+    display: flex;
+    list-style: none;
 }
 
-/* Responsive pour étoiles et barre */
-@media (max-width: 768px) {
-    .star-rating {
-        font-size: 1.8rem;
-        gap: 0.2rem;
-    }
-    .progress-container {
-        max-width: 250px;
-    }
+nav li {
+    margin-left: 2rem;
 }
+
+nav a {
+    color: #ffffff;
+    text-decoration:
