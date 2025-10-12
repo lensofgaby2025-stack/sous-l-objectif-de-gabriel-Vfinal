@@ -304,3 +304,42 @@ footer {
         padding: 1rem; /* Padding réduit sur mobile */
     }
 }
+/* Styles pour le sondage étoiles (ajoutés) */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Pour que les étoiles se sélectionnent de droite à gauche */
+    justify-content: center;
+    gap: 0.2rem;
+    margin: 1rem 0;
+    font-size: 2rem; /* Taille des étoiles */
+    cursor: pointer;
+}
+
+.star-rating input[type="radio"] {
+    display: none; /* Cache les radios, on utilise les labels comme étoiles */
+}
+
+.star-rating label {
+    color: #a5b4fc; /* Couleur par défaut (bleu clair techno) */
+    transition: color 0.3s;
+    margin: 0;
+    padding: 0.1rem;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffd700; /* Jaune/or pour étoiles sélectionnées/hover */
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Glow subtil techno */
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: #ffd700; /* Étoiles sélectionnées en or */
+}
+
+/* Responsive pour étoiles */
+@media (max-width: 768px) {
+    .star-rating {
+        font-size: 1.5rem;
+    }
+}
