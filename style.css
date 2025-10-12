@@ -58,4 +58,23 @@ nav li {
 
 nav a {
     color: #ffffff;
-    text-decoration:
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a5b4fc;
+}
+
+main {
+    margin-top: 80px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 80px auto 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(10, 37, 64, 0.8) 100%);
+    border
