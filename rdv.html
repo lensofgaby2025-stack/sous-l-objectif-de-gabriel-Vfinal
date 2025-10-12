@@ -23,27 +23,11 @@
     <main>
         <section class="rdv">
             <h2>Prendre Rendez-vous</h2>
-            <p>Choisissez une date pour votre shooting ou événement. Utilisez le calendrier ci-dessous ou réservez directement via Koalendar.</p>
+            <p>Choisissez une date pour votre shooting ou événement. Réservez directement via Koalendar ci-dessous.</p>
             
-            <!-- Calendrier interactif JS (style agenda foncé) -->
-            <div id="calendar" class="calendar"></div>
-            
-            <!-- Formulaire pour RDV (envoi email via Formspree) -->
-            <form action="https://formspree.io/f/TON_FORM_ID_RDV" method="POST" class="rdv-form"> <!-- Remplace par un nouveau form ID Formspree -->
-                <input type="date" name="date" id="selectedDate" required>
-                <input type="time" name="heure" placeholder="Heure préférée" required>
-                <input type="text" name="type" placeholder="Type de RDV (mariage/événement/shooting)" required>
-                <button type="submit" class="btn">Confirmer RDV par Email</button>
-            </form>
-            
-            <!-- Intégration Koalendar via iframe -->
+            <!-- Intégration Koalendar via iframe (seul élément gardé) -->
             <h3>Réservez directement</h3>
             <iframe src="https://koalendar.com/e/meet-with-gabriel-87" width="100%" height="600" frameborder="0"></iframe>
-            
-            <!-- Style inspiré de la 2e photo : agenda mensuel foncé -->
-            <div class="rdv-img">
-                <img src="https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Agenda+Style" alt="Style agenda">
-            </div>
         </section>
     </main>
 
@@ -51,6 +35,6 @@
         <p>&copy; 2023 L'Objectif de Gabriel. Tous droits réservés.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Pas de script.js ici, car plus de calendrier -->
 </body>
 </html>
