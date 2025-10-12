@@ -24,10 +24,21 @@
         <section class="contact">
             <h2>Contactez-nous</h2>
             <p>Envoyez-nous un message pour discuter de votre projet photo.</p>
-            <form action="https://formspree.io/f/TON_FORM_ID" method="POST"> <!-- Remplace TON_FORM_ID par celui de Formspree après inscription -->
+            <form action="https://formspree.io/f/TON_FORM_ID" method="POST"> <!-- Remplace TON_FORM_ID par celui de Formspree -->
                 <input type="email" name="email" placeholder="Votre email" required>
                 <input type="text" name="nom" placeholder="Votre nom" required>
-                <textarea name="message" placeholder="Votre message (détails du projet)" rows="5" required></textarea>
+                <input type="text" name="lieu" placeholder="Lieu du projet (ex. ville ou salle)" required>
+                
+                <label>Sélectionnez les styles de photo qui vous intéressent :</label>
+                <div class="checkboxes">
+                    <label><input type="checkbox" name="styles[]" value="Shooting Pub"> Shooting Pub</label><br>
+                    <label><input type="checkbox" name="styles[]" value="Shooting Événement"> Shooting Événement</label><br>
+                    <label><input type="checkbox" name="styles[]" value="Shooting Personnel"> Shooting Personnel</label><br>
+                    <label><input type="checkbox" name="styles[]" value="Mariage"> Mariage</label><br>
+                    <label><input type="checkbox" name="styles[]" value="Événement"> Événement</label>
+                </div>
+                
+                <textarea name="message" placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..." rows="5" required></textarea>
                 <button type="submit" class="btn">Envoyer</button>
             </form>
             <!-- Style inspiré d'une photo : formulaire minimaliste avec fond bleu techno -->
