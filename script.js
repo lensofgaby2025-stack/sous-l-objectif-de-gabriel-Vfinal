@@ -1,4 +1,4 @@
-// Script complet : Étoiles, checkboxes, ET rotation interactive Polaroids (opposée à souris, max 6°)
+// Script complet : Étoiles, checkboxes, ET rotation interactive Polaroids (opposée à souris)
 document.addEventListener('DOMContentLoaded', function() {
     // Étoiles left-to-right
     const stars = document.querySelectorAll('.star-rating label');
@@ -69,23 +69,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         function updateProgressBar(value) {
-            if (progressFill) {
-                const percentage = (value / 5) * 100;
-                progressFill.style.width = percentage + '%';
-            }
+            if (progressFill) progressFill.style.width = (value / 5) * 100 + '%';
             if (progressContainer) progressContainer.classList.add('visible');
         }
 
         const radios = document.querySelectorAll('input[name="note"]');
-        radios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                selectedValue = parseInt(this.value);
-                updateProgressBar(selectedValue);
-            });
-        });
+        radios.forEach(radio => radio.addEventListener('change', function() {
+            selectedValue = parseInt(this.value);
+            updateProgressBar(selectedValue);
+        }));
     }
 
-    // Checkboxes animations
+    // Checkboxes
     const checkboxLabels = document.querySelectorAll('.checkbox-label');
     checkboxLabels.forEach(label => {
         const checkbox = label.querySelector('input[type="checkbox"]');
@@ -95,45 +90,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     label.classList.add('checked');
                     setTimeout(() => label.style.transform = 'scale(1.05)', 100);
                     setTimeout(() => label.style.transform = 'scale(1)', 600);
-                } else {
-                    label.classList.remove('checked');
-                }
+                } else label.classList.remove('checked');
             });
         }
     });
 
-    // Rotation interactive Polaroids (opposée à souris – corrigée)
-    const polaroids = document.querySelectorAll('.polaroid:not(.large-empty)'); // Seulement photos, pas le final
-    const maxTiltX = 6; // Rotation max opposée (degrés)
-    const maxTiltY = 3; // Tilt subtil haut/bas
+    // Rotation interactive Polaroids (opposée à souris – fixée et testée)
+    const polaroids = document.querySelectorAll('.polaroid:not(.large-empty)'); // Seulement photos
+    const maxTiltX = 6; // Max opposée (degrés)
+    const maxTiltY = 3; // Tilt subtil
     let throttleTimer;
 
-    polaroids.forEach(polaroid => {
-        const rect = polaroid.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        polaroid.addEventListener('mousemove', throttle(function(e) {
-            // Position relative au centre ( -1 à +1 )
-            const mouseX = (e.clientX - centerX) / (rect.width / 2);
-            const mouseY = (e.clientY - centerY) / (rect.height / 2);
-
-            // Rotation opposée : Souris droite (mouseX > 0) → tourne gauche (tiltX négatif)
-            const tiltX = -mouseX * maxTiltX; // Opposé horizontal
-            const tiltY = mouseY * maxTiltY; // Subtil vertical
-
-            // Applique 3D rotation (Y pour gauche/droite, X pour profondeur)
-            const originalRotation = getComputedStyle(polaroid).getPropertyValue('--rotation') || 0;
-            polaroid.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg) rotate(${originalRotation}deg) scale(1.02)`;
-        }, 16)); // Throttle 60fps pour fluidité
-
-        polaroid.addEventListener('mouseleave', function() {
-            const originalRotation = getComputedStyle(this).getPropertyValue('--rotation') || 0;
-            this.style.transform = `rotate(${originalRotation}deg) scale(1)`; // Reset à original
-        });
-    });
-
-    // Throttle helper pour mousemove (no lag)
     function throttle(func, limit) {
         let inThrottle;
         return function() {
@@ -144,15 +111,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 inThrottle = true;
                 setTimeout(() => inThrottle = false, limit);
             }
-        }
+        };
     }
 
-    // Submit form debug
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function() {
-            const note = document.querySelector('input[name="note"]:checked');
-            if (note) console.log('Note envoyée : ' + note.value + ' étoiles');
+    polaroids.forEach(polaroid => {
+        polaroid.addEventListener('mousemove', throttle(function(e) {
+            const rect = this.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Position relative au centre (-1 à +1)
+            const mouseX = (e.clientX - centerX) / (rect.width / 2);
+            const mouseY = (e.clientY - centerY) / (rect.height / 2);
+
+            // Rotation opposée : Souris droite (mouseX > 0) → tourne gauche (tiltX négatif)
+            const tiltX = -mouseX * maxTiltX; // Opposé horizontal
+            const tiltY = mouseY * maxTiltY; // Vertical subtil
+
+            const originalRotation = getComputedStyle(this).getPropertyValue('--rotation') || 0;
+            this.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg) rotate(${originalRotation}deg) scale(1.02)`;
+        }, 16)); // 60fps throttle
+
+        polaroid.addEventListener('mouseleave', function() {
+            const originalRotation = getComputedStyle(this).getPropertyValue('--rotation') || 0;
+            this.style.transform = `rotate(${originalRotation}deg) scale(1)`; // Reset
         });
-    }
+    });
+
+    // Submit form
+    const form = document.querySelector('form');
+    if (form) form.addEventListener('submit', function() {
+        const note = document.querySelector('input[name="note"]:checked');
+        if (note) console.log('Note envoyée : ' + note.value + ' étoiles');
+    });
 });
