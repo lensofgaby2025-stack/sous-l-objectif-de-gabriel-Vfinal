@@ -6,10 +6,10 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 50%, #3730a3 100%); /* Dégradé bleu techno varié */
+    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 50%, #3730a3 100%);
     color: #ffffff;
     line-height: 1.6;
-    animation: fadeIn 1s ease-in; /* Animation fade-in au chargement */
+    animation: fadeIn 1s ease-in;
 }
 
 @keyframes fadeIn {
@@ -18,7 +18,7 @@ body {
 }
 
 main section {
-    animation: slideUp 0.8s ease-out; /* Slide-up pour sections */
+    animation: slideUp 0.8s ease-out;
 }
 
 @keyframes slideUp {
@@ -78,7 +78,7 @@ main {
     padding: 4rem 0;
     background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(10, 37, 64, 0.8) 100%);
     border-radius: 10px;
-    margin-bottom: 2rem; /* Espace pour la nouvelle section */
+    margin-bottom: 2rem;
 }
 
 .hero h2 {
@@ -107,7 +107,7 @@ main {
     background: linear-gradient(135deg, rgba(10, 37, 64, 0.7) 0%, rgba(30, 58, 138, 0.7) 100%);
     padding: 2rem;
     border-radius: 10px;
-    margin: 2rem 0; /* Espace ajusté */
+    margin: 2rem 0;
 }
 
 .galerie h2 {
@@ -145,6 +145,64 @@ main {
 
 .photos img:hover::after {
     opacity: 1;
+}
+
+.services {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(55, 48, 163, 0.6) 0%, rgba(10, 37, 64, 0.6) 100%);
+    border-radius: 10px;
+    margin: 1rem 0 2rem 0;
+}
+
+.services h2 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.services p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-btn {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+    color: #ffffff;
+    padding: 1.5rem;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+    text-align: center;
+}
+
+.service-btn:hover {
+    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-btn h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.service-btn p {
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
 .about, .contact, .rdv {
@@ -190,26 +248,54 @@ input:focus, textarea:focus {
     box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
 }
 
-/* Checkboxes (pour contact) */
 .checkboxes {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.8rem;
     margin: 1rem 0;
     text-align: left;
 }
 
-.checkboxes label {
+.checkbox-label {
     display: flex;
     align-items: center;
     cursor: pointer;
     color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
-.checkboxes input[type="checkbox"] {
+.checkbox-label:hover {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+}
+
+.checkbox-label input[type="checkbox"] {
     margin-right: 0.5rem;
     width: auto;
     background: rgba(255,255,255,0.2);
+    accent-color: #fbbf24;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    animation: checkBounce 0.5s ease;
+    box-shadow: 0 0 5px #4ade80;
+}
+
+@keyframes checkBounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.checkbox-label.checked {
+    border: 2px solid #4ade80; /* Bordure verte sur coche pour confirmation */
+    background: rgba(74, 222, 128, 0.1);
 }
 
 .rdv iframe {
@@ -218,63 +304,86 @@ input:focus, textarea:focus {
     margin: 2rem 0;
 }
 
-/* NOUVEAUX STYLES POUR SECTION SERVICES (intégrés sans casser) */
-.services {
-    text-align: center;
-    padding: 3rem 2rem; /* Padding réduit pour fluidité */
-    background: linear-gradient(135deg, rgba(55, 48, 163, 0.6) 0%, rgba(10, 37, 64, 0.6) 100%);
-    border-radius: 10px;
-    margin: 1rem 0 2rem 0; /* Margins ajustés pour coller au hero et galerie */
-}
-
-.services h2 {
-    margin-bottom: 1rem;
+/* Espacement pour page À Propos (aéré + gap titre) */
+.about h2 {
+    margin-bottom: 3rem; /* Espace augmenté entre titre et texte */
     font-size: 2.5rem;
 }
 
-.services p {
-    margin-bottom: 2rem; /* Réduit pour compacité */
-    font-size: 1.2rem;
+.about p {
+    margin-bottom: 2.5rem; /* Gap augmenté entre paragraphes */
+    line-height: 1.9; /* Lignes plus espacées pour aération */
+    font-size: 1.1rem;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem; /* Gap réduit pour layout serré */
-    max-width: 1200px;
-    margin: 0 auto;
+/* Étoiles mis à jour : Left-to-Right (normal flow) */
+.star-rating {
+    display: flex;
+    flex-direction: row; /* Left-to-right */
+    justify-content: center;
+    gap: 0.3rem;
+    margin: 1rem 0;
+    font-size: 2.2rem;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
 }
 
-.service-btn {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
-    color: #ffffff;
-    padding: 1.5rem; /* Padding réduit pour équilibre */
-    text-decoration: none;
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: #a5b4fc;
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0.2rem;
+    position: relative;
+    text-shadow: none;
+}
+
+/* Hover/Selection : Allume de gauche à droite */
+.star-rating label:hover,
+.star-rating input[type="radio"]:checked + label,
+.star-rating input[type="radio"]:checked + label ~ label {
+    color: #fbbf24;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.3);
+    transform: scale(1.1);
+}
+
+.star-rating input[type="radio"]:checked + label {
+    color: #f59e0b;
+}
+
+/* Barre de progression */
+.progress-container {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.progress-container.visible {
+    opacity: 1;
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-    text-align: center;
+    height: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.service-btn:hover {
-    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem; /* Réduit */
-}
-
-.service-btn h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.service-btn p {
-    font-size: 1rem;
-    opacity: 0.9;
+.progress-fill {
+    background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
 }
 
 footer {
@@ -284,62 +393,5 @@ footer {
     margin-top: 4rem;
 }
 
-/* Responsive (ajusté pour services) */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .hero h2 {
-        font-size: 2rem;
-    }
-    .services-grid {
-        grid-template-columns: 1fr; /* Une colonne sur mobile */
-        gap: 1rem;
-    }
-    .checkboxes {
-        text-align: center;
-    }
-    main {
-        padding: 1rem; /* Padding réduit sur mobile */
-    }
-}
-/* Styles pour le sondage étoiles (ajoutés) */
-.star-rating {
-    display: flex;
-    flex-direction: row-reverse; /* Pour que les étoiles se sélectionnent de droite à gauche */
-    justify-content: center;
-    gap: 0.2rem;
-    margin: 1rem 0;
-    font-size: 2rem; /* Taille des étoiles */
-    cursor: pointer;
-}
-
-.star-rating input[type="radio"] {
-    display: none; /* Cache les radios, on utilise les labels comme étoiles */
-}
-
-.star-rating label {
-    color: #a5b4fc; /* Couleur par défaut (bleu clair techno) */
-    transition: color 0.3s;
-    margin: 0;
-    padding: 0.1rem;
-}
-
-.star-rating input[type="radio"]:checked ~ label,
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: #ffd700; /* Jaune/or pour étoiles sélectionnées/hover */
-    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); /* Glow subtil techno */
-}
-
-.star-rating input[type="radio"]:checked ~ label {
-    color: #ffd700; /* Étoiles sélectionnées en or */
-}
-
-/* Responsive pour étoiles */
-@media (max-width: 768px) {
-    .star-rating {
-        font-size: 1.5rem;
-    }
-}
+/* Responsive */
+@media (max-width:
