@@ -120,19 +120,22 @@ main {
     margin-bottom: 2rem;
 }
 
-/* Styles pour Corkboard (tableau en liège naturel) – Appliqué aux galeries */
+/* Styles pour Corkboard (tableau en liège réaliste avec image texture) */
 .corkboard {
-    background: linear-gradient(135deg, #d2b48c 0%, #c19a6b 50%, #d2b48c 100%); /* Texture liège beige/dégradé */
-    padding: 3rem;
-    border-radius: 20px;
+    background-image: url('images/cork-texture.jpg'); /* Upload ta texture liège ici – réaliste ! */
+    background-size: 100px 100px; /* Taille tuile pour répétition */
+    background-repeat: repeat; /* Répète pour couvrir tout */
+    padding: 4rem; /* Plus d'espace pour naturel */
+    border-radius: 25px; /* Coins plus arrondis */
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-around; /* Espacement naturel, dispersé */
+    gap: 3rem; /* Gap augmenté pour plus d'air entre Polaroids */
     margin: 2rem 0;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.1); /* Effet profondeur liège */
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.2); /* Profondeur liège + ombre extérieure */
     position: relative;
     overflow: hidden;
+    min-height: 600px; /* Hauteur min pour s'adapter aux 15 Polaroids */
 }
 
 .corkboard::before {
@@ -142,40 +145,93 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(193, 154, 107, 0.1) 10px, rgba(193, 154, 107, 0.1) 12px); /* Texture grains liège */
+    background: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(0,0,0,0.05) 15px, rgba(0,0,0,0.05) 17px); /* Grains subtils sur texture */
     pointer-events: none;
+    opacity: 0.8;
 }
 
+/* Polaroids plus grands et réalistes (vrai format avec frame blanche) */
 .polaroid {
-    width: 200px;
-    height: 250px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    width: 250px; /* Plus grand pour réalisme */
+    height: 320px; /* Hauteur augmentée pour Polaroid classique */
+    background: #fff; /* Fond blanc pur */
+    border-radius: 15px; /* Coins arrondis doux */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5); /* Ombre vintage + inner glow */
     position: relative;
-    transform: rotate(calc(var(--rotation, 0) * 1deg)); /* Inclinaison aléatoire pour détendu */
-    transition: transform 0.3s ease;
+    transform: rotate(calc(var(--rotation, 0) * 1deg)); /* Inclinaison aléatoire */
+    transition: transform 0.4s ease-out; /* Transition plus lente pour naturel */
+    overflow: hidden; /* Cache débordements frame */
 }
 
 .polaroid:hover {
-    transform: rotate(calc(var(--rotation, 0) * 1deg)) scale(1.05); /* Zoom léger sur hover */
+    transform: rotate(calc(var(--rotation, 0) * 1deg)) translateY(-8px); /* Lift subtil sur hover (plus détendu que scale) */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Ombre plus prononcée sur hover */
+}
+
+/* Frame Polaroid authentique (bordure blanche autour de la photo) */
+.polaroid .photo-frame {
+    width: 210px; /* Photo centrée, 20px bordure blanche de chaque côté */
+    height: 170px;
+    margin: 20px auto 30px; /* Espacement pour frame + bande blanche en bas */
+    background: #fff; /* Frame blanche */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1); /* Bordure intérieure subtile */
 }
 
 .polaroid img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 5px 5px 0 0;
+    display: block;
 }
 
+/* Bande blanche en bas (classique Polaroid pour "date" – vide ici pour naturel) */
+.polaroid::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px; /* Bande blanche en bas */
+    background: #fff;
+    border-radius: 0 0 15px 15px;
+}
+
+/* Punaise plus réaliste (CSS : tête ronde + tige) */
 .pin {
     position: absolute;
-    top: -10px;
+    top: -15px; /* Plus haut pour réalisme */
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.5rem;
-    color: #8b4513; /* Marron punaise */
     z-index: 2;
+    width: 20px;
+    height: 20px;
+}
+
+.pin::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: #ccc; /* Tête ronde grise */
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Ombre tête */
+}
+
+.pin::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 20px;
+    background: #8b4513; /* Tige marron */
+    border-radius: 4px;
+    transform: rotate(45deg); /* Légère inclinaison pour naturel */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Ombre tige */
 }
 
 .polaroid.empty {
@@ -187,162 +243,145 @@ main {
     background: #fff;
     color: #666;
     font-style: italic;
+    padding: 1rem;
 }
 
 .empty-text {
     padding: 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.4;
 }
 
-/* Inclinaison aléatoire pour chaque Polaroid (détendu) */
-.polaroid:nth-child(odd) { --rotation: -1; }
-.polaroid:nth-child(even) { --rotation: 1; }
-.polaroid:nth-child(3n) { --rotation: -2; }
+/* Inclinaison aléatoire pour chaque Polaroid (détendu et naturel) */
+.polaroid:nth-child(odd) { --rotation: -1.5; }
+.polaroid:nth-child(even) { --rotation: 1.2; }
+.polaroid:nth-child(3n) { --rotation: -2.5; }
 .polaroid:nth-child(5n) { --rotation: 2; }
-.polaroid:nth-child(7n) { --rotation: -1.5; }
-.polaroid:nth-child(11n) { --rotation: 1.5; }
+.polaroid:nth-child(7n) { --rotation: -1; }
+.polaroid:nth-child(11n) { --rotation: 1.8; }
+.polaroid:nth-child(13n) { --rotation: -0.5; }
 
-/* Responsive pour corkboard */
+/* Responsive pour corkboard et Polaroids (plus petit sur mobile) */
 @media (max-width: 768px) {
     .corkboard {
-        padding: 1rem;
-        gap: 1rem;
+        padding: 2rem;
+        gap: 2rem;
+        justify-content: center; /* Centre sur mobile pour naturel */
     }
     .polaroid {
-        width: 150px;
-        height: 200px;
+        width: 200px;
+        height: 260px;
     }
-    .polaroid img {
-        height: 150px;
+    .polaroid .photo-frame {
+        width: 160px;
+        height: 130px;
+        margin: 15px auto 25px;
     }
     .empty-text {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .about p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .about-img {
+        max-width: 100%;
+        min-height: 250px;
+        padding: 1rem;
+        margin: 1.5rem auto 0;
+    }
+    .star-rating {
+        font-size: 1.8rem;
+        gap: 0.2rem;
+    }
+    .checkbox-label {
+        padding: 0.3rem;
+    }
+    .progress-container {
+        max-width: 250px;
+    }
+    main {
+        padding: 1rem;
     }
 }
 
-.services {
-    text-align: center;
-    padding: 3rem 2rem;
-    background: linear-gradient(135deg, rgba(55, 48, 163, 0.6) 0%, rgba(10, 37, 64, 0.6) 100%);
-    border-radius: 10px;
-    margin: 1rem 0 2rem 0;
-}
-
-.services h2 {
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
-}
-
-.services p {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.service-btn {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
-    color: #ffffff;
-    padding: 1.5rem;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-    text-align: center;
-}
-
-.service-btn:hover {
-    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-
-.service-btn h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.service-btn p {
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-.about, .contact, .rdv {
-    text-align: center;
-    padding: 2rem 0;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(55, 48, 163, 0.6) 100%);
-    border-radius: 10px;
-    margin: 2rem 0;
-}
-
-.about h2 {
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-}
-
-.about p {
-    margin-bottom: 2.5rem;
-    line-height: 1.9;
-    font-size: 1.1rem;
-}
-
-.about-img, .contact-img, .rdv-img {
-    margin-top: 2rem;
-}
-
-.about-img img, .contact-img img, .rdv-img img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-/* Ajustement taille photo À Propos (plus grande et calée au centre) */
-.about-img {
-    max-width: 90%;
-    min-height: 300px;
-    height: auto;
-    display: block;
-    margin: 3rem auto 0;
-    padding: 1.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.6);
-    border: 3px solid rgba(255, 255, 255, 0.15);
-}
-
-form {
-    max-width: 500px;
-    margin: 2rem auto;
+/* Reste des styles (étoiles, checkboxes, etc. – inchangés) */
+.star-rating {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.3rem;
+    margin: 1rem 0;
+    font-size: 2.2rem;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
 }
 
-input, textarea {
-    padding: 1rem;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255,255,255,0.1);
-    color: #ffffff;
-    font-size: 1rem;
+.star-rating input[type="radio"] {
+    display: none;
 }
 
-input::placeholder, textarea::placeholder {
+.star-rating label {
     color: #a5b4fc;
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0.2rem;
+    position: relative;
+    text-shadow: none;
 }
 
-input:focus, textarea:focus {
-    outline: 2px solid #1e3a8a;
-    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
+.star-rating label:hover,
+.star-rating input[type="radio"]:checked + label,
+.star-rating input[type="radio"]:checked + label ~ label {
+    color: #fbbf24;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.3);
+    transform: scale(1.1);
+}
+
+.star-rating input[type="radio"]:checked + label {
+    color: #f59e0b;
+}
+
+.progress-container {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.progress-container.visible {
+    opacity: 1;
+}
+
+.progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
 }
 
 .checkboxes {
@@ -366,12 +405,41 @@ input:focus, textarea:focus {
 
 .checkbox-label:hover {
     background: rgba(251, 191, 36, 0.1);
-    color: #
-/* Transition pour rotation interactive Polaroids (fluide) */
-.polaroid {
-    transition: transform 0.3s ease-out; /* Smooth rotation sur mousemove */
+    color: #fbbf24;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
 }
 
-.polaroid img {
-    transition: transform 0.3s ease-out; /* Image suit la rotation du cadre */
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: auto;
+    background: rgba(255,255,255,0.2);
+    accent-color: #fbbf24;
+    transition: all 0.3s ease;
 }
+
+.checkbox-label input[type="checkbox"]:checked {
+    animation: checkBounce 0.5s ease;
+    box-shadow: 0 0 5px #4ade80;
+}
+
+@keyframes checkBounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.checkbox-label.checked {
+    border: 2px solid #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.about-img {
+    max-width: 90%;
+    min-height: 300px;
+    height: auto;
+    display: block;
+    margin: 3rem auto 0;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px
