@@ -1,4 +1,4 @@
-// Script complet pour le site : Étoiles left-to-right, animations checkboxes, progress bar, et confirmation submit
+// Script complet pour le site : Étoiles left-to-right, animations checkboxes, progress bar, ET rotation interactive Polaroids
 document.addEventListener('DOMContentLoaded', function() {
     // Étoiles : Hover et sélection left-to-right (de gauche à droite)
     const stars = document.querySelectorAll('.star-rating label');
@@ -119,6 +119,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // NOUVEAU : Effet Rotation Interactive sur Polaroids (tourne opposé à la souris)
+    const polaroids = document.querySelectorAll('.polaroid:not(.empty)'); // Seulement les Polaroids avec photos, pas le vide
+    const maxTiltX = 5; // Rotation max gauche/droite (degrés)
+    const maxTiltY = 3; // Rotation max haut/bas (subtil)
+    let mouseX = 0;
+    let mouseY = 0;
+
+    polaroids.forEach(polaroid => {
+        const rect = polaroid.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        polaroid.addEventListener('mousemove', function(e) {
+            // Position relative au centre du Polaroid
+            mouseX = (e.clientX - centerX) / (rect.width / 2); // -1 à +1 (gauche/droite)
+            mouseY = (e.clientY - centerY) / (rect.height / 2); // -1 à +1 (haut/bas)
+
+            // Rotation opposée : Souris droite → tourne gauche (rotateY négatif)
+            const tiltX = -mouseX * maxTiltX; // Opposé horizontal (gauche si souris droite)
+            const tiltY = mouseY * maxTiltY; // Subtil vertical (bas si souris bas)
+
+            // Applique rotation 3D (Y pour gauche/droite, X pour avant/arrière subtil)
+            polaroid.style.transform = `rotateY(${tiltX}deg) rotateX(${tiltY}deg) rotate(${getComputedStyle(polaroid).getPropertyValue('--rotation') || 0}deg) scale(1.02)`; // + original rotation + léger zoom
+        });
+
+        polaroid.addEventListener('mouseleave', function() {
+            // Reset à rotation originale sur sortie souris
+            polaroid.style.transform = `rotate(${getComputedStyle(polaroid).getPropertyValue('--rotation') || 0}deg) scale(1)`; // Reset sans tilt
+        });
+    });
+
     // Confirmation après submit formulaire (optionnel, pour debug)
     const form = document.querySelector('form');
     if (form) {
@@ -132,5 +163,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Autres fonctionnalités futures (vide pour l'instant)
-    // Ex. : Si tu ajoutes plus de JS (ex. lightbox pour galeries), ajoute ici
+    // Ex. : Si tu ajoutes plus de JS (ex. lightbox pour Polaroids), ajoute ici
 });
+
+// Fonction helper pour throttle si besoin (évite lag mousemove, mais pas nécessaire ici car subtil)
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
