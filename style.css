@@ -367,3 +367,11 @@ input:focus, textarea:focus {
 .checkbox-label:hover {
     background: rgba(251, 191, 36, 0.1);
     color: #
+/* Transition pour rotation interactive Polaroids (fluide) */
+.polaroid {
+    transition: transform 0.3s ease-out; /* Smooth rotation sur mousemove */
+}
+
+.polaroid img {
+    transition: transform 0.3s ease-out; /* Image suit la rotation du cadre */
+}
