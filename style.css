@@ -128,6 +128,14 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     position: relative;
+    transition: transform 0.3s ease; /* Pour rotation fluide si appliquée */
+}
+
+.photos img.rotated {
+    transform: rotate(-90deg); /* Rotation 90° vers la gauche (counter-clockwise) pour shooting-personnel */
+    width: 200px; /* Swap width/height pour compenser rotation */
+    height: 100%; /* Garde aspect ratio */
+    margin: 0 auto; /* Centre après rotation */
 }
 
 .photos img::after {
@@ -214,13 +222,13 @@ main {
 }
 
 .about h2 {
-    margin-bottom: 3rem; /* Espace augmenté entre titre et texte */
+    margin-bottom: 3rem;
     font-size: 2.5rem;
 }
 
 .about p {
-    margin-bottom: 2.5rem; /* Gap augmenté entre paragraphes */
-    line-height: 1.9; /* Lignes plus espacées pour aération */
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
     font-size: 1.1rem;
 }
 
@@ -233,16 +241,17 @@ main {
     border-radius: 10px;
 }
 
-/* Ajustement taille photo À Propos (plus grande et calée au centre) */
+/* Ajustement taille photo À Propos (plus grande et calée au centre – version augmentée) */
 .about-img {
-    max-width: 80%; /* Plus grande que 100% précédent, mais pas trop large */
-    height: auto; /* Garde les proportions naturelles */
-    display: block; /* Pour centrage */
-    margin: 2rem auto 0; /* Centré avec espace au-dessus (calé après texte) */
-    padding: 1rem; /* Bordure douce pour fit */
-    border-radius: 15px; /* Coins arrondis plus généreux */
-    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.5); /* Shadow bleu techno pour profondeur */
-    border: 2px solid rgba(255, 255, 255, 0.1); /* Bordure subtile pour "calage" */
+    max-width: 90%; /* Augmenté à 90% pour plus grande */
+    min-height: 300px; /* Hauteur minimale pour la rendre plus imposante */
+    height: auto; /* Proportions naturelles */
+    display: block;
+    margin: 3rem auto 0; /* Plus d'espace au-dessus pour calage */
+    padding: 1.5rem; /* Padding augmenté pour "cadre" */
+    border-radius: 20px; /* Coins plus arrondis */
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.6); /* Shadow plus prononcé */
+    border: 3px solid rgba(255, 255, 255, 0.15); /* Bordure plus visible */
 }
 
 form {
@@ -422,21 +431,11 @@ footer {
         line-height: 1.7;
     }
     .about-img {
-        max-width: 95%;
-        padding: 0.5rem;
-        margin: 1rem auto 0;
+        max-width: 100%; /* Pleine largeur sur mobile */
+        min-height: 250px; /* Hauteur min réduite pour mobile */
+        padding: 1rem;
+        margin: 1.5rem auto 0;
     }
     .star-rating {
         font-size: 1.8rem;
-        gap: 0.2rem;
-    }
-    .checkbox-label {
-        padding: 0.3rem;
-    }
-    .progress-container {
-        max-width: 250px;
-    }
-    main {
-        padding: 1rem;
-    }
-}
+        gap: 0.2
