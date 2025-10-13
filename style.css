@@ -86,10 +86,6 @@ main {
     margin-bottom: 1rem;
 }
 
-.hero-btn {
-    margin-top: 1rem; /* Espace pour CTA hero */
-}
-
 .btn {
     background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
     color: #ffffff;
@@ -124,17 +120,16 @@ main {
     margin-bottom: 2rem;
 }
 
-/* Styles pour Corkboard (tableau en liège réaliste) */
+/* Corkboard avec 3 par rangée */
 .corkboard {
     background-image: url('images/cork-texture.jpg');
     background-size: 100px 100px;
     background-repeat: repeat;
     padding: 4rem;
     border-radius: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 par rangée sur desktop */
+    gap: 3rem; /* Espacement naturel */
     margin: 2rem 0;
     box-shadow: inset 0 0 30px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
@@ -154,10 +149,18 @@ main {
     opacity: 0.8;
 }
 
-/* Polaroids plus grands et réalistes */
+/* Polaroid vide solo sur ligne à la fin (full-width) */
+.corkboard .polaroid.empty {
+    grid-column: 1 / -1; /* Span toute la largeur (solo ligne) */
+    margin-top: 2rem; /* Espace au-dessus pour séparation */
+    justify-self: center; /* Centré */
+    width: 300px; /* Taille fixe pour solo */
+    height: 200px;
+}
+
 .polaroid {
-    width: 280px; /* Plus grand pour plus d'espace */
-    height: 360px;
+    width: 100%; /* Pleine largeur dans grid */
+    height: 340px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
@@ -172,10 +175,9 @@ main {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* Frame Polaroid authentique (bordure blanche plus grande pour photos qui prennent plus d'espace) */
 .photo-frame {
-    width: 240px; /* Augmenté pour photos plus grandes */
-    height: 200px; /* Hauteur augmentée pour fill mieux */
+    width: 240px;
+    height: 200px;
     margin: 20px auto 40px;
     background: #fff;
     border-radius: 8px;
@@ -186,11 +188,10 @@ main {
 .photo-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Photos remplissent le cadre sans déformer (crop si besoin) */
+    object-fit: cover;
     display: block;
 }
 
-/* Bande blanche en bas */
 .polaroid::after {
     content: '';
     position: absolute;
@@ -202,7 +203,6 @@ main {
     border-radius: 0 0 15px 15px;
 }
 
-/* Punaise réaliste */
 .pin {
     position: absolute;
     top: -18px;
@@ -274,76 +274,10 @@ main {
 .polaroid:nth-child(14) { --rotation: 2.0; }
 .polaroid:nth-child(15) { --rotation: -1.5; }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .corkboard {
-        padding: 2rem;
-        gap: 2.5rem;
-        justify-content: center;
-    }
-    .polaroid {
-        width: 220px;
-        height: 300px;
-    }
-    .photo-frame {
-        width: 180px;
-        height: 150px;
-        margin: 15px auto 35px;
-    }
-    .empty-text {
-        font-size: 0.9rem;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .hero h2 {
-        font-size: 2rem;
-    }
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    .about p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-    .about-img {
-        max-width: 100%;
-        min-height: 250px;
-        padding: 1rem;
-        margin: 1.5rem auto 0;
-    }
-    .star-rating {
-        font-size: 1.8rem;
-        gap: 0.2rem;
-    }
-    .checkbox-label {
-        padding: 0.3rem;
-    }
-    .progress-container {
-        max-width: 250px;
-    }
-    main {
-        padding: 1rem;
-    }
-    /* Accueil responsive : Boutons services 1 colonne mobile */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .service-icon {
-        font-size: 2.5rem; /* Icons plus petits mobile */
-    }
-    .service-btn {
-        padding: 1rem; /* Padding réduit mobile */
-    }
-}
-
-/* Styles accueil corrigés (responsive boutons) */
+/* Services (accueil) – Espace fixé entre CTA et boutons */
 .services {
     text-align: center;
-    padding: 3rem 1rem; /* Padding réduit mobile */
+    padding: 3rem 2rem;
     background: linear-gradient(135deg, rgba(55, 48, 163, 0.6) 0%, rgba(10, 37, 64, 0.6) 100%);
     border-radius: 10px;
     margin: 1rem 0 2rem 0;
@@ -361,10 +295,10 @@ main {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-fit pour responsive */
-    gap: 1.5rem; /* Gap réduit pour mobile */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 3rem auto; /* Espace fixé entre grid et CTA en bas */
 }
 
 .service-btn {
@@ -374,4 +308,180 @@ main {
     text-decoration: none;
     border-radius: 10px;
     transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(30, 
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+    text-align: center;
+}
+
+.service-btn:hover {
+    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.service-btn h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.service-btn p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.cta-section {
+    margin-top: 2rem; /* Espace contrôlé entre CTA et grid */
+    text-align: center;
+}
+
+/* À Propos – Texte aéré et photo jolie */
+.about, .contact, .rdv {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.6) 0%, rgba(55, 48, 163, 0.6) 100%);
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.about h2 {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.about p {
+    margin-bottom: 3rem; /* Plus aéré entre paragraphes */
+    line-height: 2.0; /* Lignes très espacées pour respiration */
+    font-size: 1.15rem; /* Légèrement plus grand pour confort */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify; /* Justification pour pro */
+}
+
+.about-img {
+    max-width: 85%; /* Jolie taille, imposante mais équilibrée */
+    min-height: 400px; /* Hauteur min pour élégance */
+    height: auto;
+    display: block;
+    margin: 3rem auto 0;
+    padding: 2rem; /* Cadre doux */
+    border-radius: 25px; /* Coins arrondis élégants */
+    box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4); /* Shadow bleue douce, pas flashy */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Bordure subtile */
+    object-fit: cover; /* Si photo haute/large, fit bien */
+}
+
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #a5b4fc;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #1e3a8a;
+    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
+}
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.checkbox-label:hover {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: auto;
+    background: rgba(255,255,255,0.2);
+    accent-color: #fbbf24;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    animation: checkBounce 0.5s ease;
+    box-shadow: 0 0 5px #4ade80;
+}
+
+@keyframes checkBounce {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.checkbox-label.checked {
+    border: 2px solid #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+}
+
+.contact-img {
+    margin-top: 2rem;
+}
+
+.contact-img img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.rdv iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    margin: 2rem 0;
+}
+
+/* Étoiles left-to-right */
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.3rem;
+    margin: 1rem 0;
+    font-size: 2.2rem;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: #a5b4fc;
+    transition:
