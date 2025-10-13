@@ -1,8 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -12,19 +8,11 @@ body {
     animation: fadeIn 1s ease-in;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-main section {
-    animation: slideUp 0.8s ease-out;
-}
+main section { animation: slideUp 0.8s ease-out; }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
 header {
     background: rgba(10, 37, 64, 0.95);
@@ -43,18 +31,11 @@ nav {
     margin: 0 auto;
 }
 
-nav h1 {
-    color: #ffffff;
-}
+nav h1 { color: #ffffff; }
 
-nav ul {
-    display: flex;
-    list-style: none;
-}
+nav ul { display: flex; list-style: none; }
 
-nav li {
-    margin-left: 2rem;
-}
+nav li { margin-left: 2rem; }
 
 nav a {
     color: #ffffff;
@@ -62,9 +43,7 @@ nav a {
     transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #a5b4fc;
-}
+nav a:hover { color: #a5b4fc; }
 
 main {
     margin-top: 80px;
@@ -81,10 +60,7 @@ main {
     margin-bottom: 2rem;
 }
 
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
+.hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
 
 .btn {
     background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
@@ -102,11 +78,7 @@ main {
     transform: translateY(-2px);
 }
 
-.btn.small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
+.btn.small { padding: 0.5rem 1rem; font-size: 0.9rem; margin-top: 0.5rem; }
 
 .galerie {
     text-align: center;
@@ -116,11 +88,9 @@ main {
     margin: 2rem 0;
 }
 
-.galerie h2 {
-    margin-bottom: 2rem;
-}
+.galerie h2 { margin-bottom: 2rem; }
 
-/* Corkboard avec 3 par rangée */
+/* Corkboard optimisé (3 par rangée, espacement naturel) */
 .corkboard {
     background-image: url('images/cork-texture.jpg');
     background-size: 100px 100px;
@@ -128,8 +98,8 @@ main {
     padding: 4rem;
     border-radius: 25px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 par rangée sur desktop */
-    gap: 3rem; /* Espacement naturel */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
     margin: 2rem 0;
     box-shadow: inset 0 0 30px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
@@ -140,26 +110,23 @@ main {
 .corkboard::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(0,0,0,0.05) 15px, rgba(0,0,0,0.05) 17px);
     pointer-events: none;
     opacity: 0.8;
 }
 
-/* Polaroid vide solo sur ligne à la fin (full-width) */
+/* Polaroid vide solo (full-width ligne finale) */
 .corkboard .polaroid.empty {
-    grid-column: 1 / -1; /* Span toute la largeur (solo ligne) */
-    margin-top: 2rem; /* Espace au-dessus pour séparation */
-    justify-self: center; /* Centré */
-    width: 300px; /* Taille fixe pour solo */
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    justify-self: center;
+    width: 300px;
     height: 200px;
 }
 
 .polaroid {
-    width: 100%; /* Pleine largeur dans grid */
+    width: 100%;
     height: 340px;
     background: #fff;
     border-radius: 15px;
@@ -168,6 +135,7 @@ main {
     transform: rotate(calc(var(--rotation, 0) * 1deg));
     transition: transform 0.4s ease-out;
     overflow: hidden;
+    will-change: transform; /* Opti GPU pour rotations */
 }
 
 .polaroid:hover {
@@ -195,9 +163,7 @@ main {
 .polaroid::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     height: 50px;
     background: #fff;
     border-radius: 0 0 15px 15px;
@@ -216,8 +182,7 @@ main {
 .pin::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 14px;
     height: 14px;
     background: radial-gradient(circle, #ddd 0%, #bbb 70%, #999 100%);
@@ -228,8 +193,7 @@ main {
 .pin::after {
     content: '';
     position: absolute;
-    top: 7px;
-    left: 7px;
+    top: 7px; left: 7px;
     width: 10px;
     height: 25px;
     background: linear-gradient(to bottom, #8b4513 0%, #a0522d 100%);
@@ -257,24 +221,25 @@ main {
     line-height: 1.4;
 }
 
-/* Inclinaison aléatoire */
-.polaroid:nth-child(1) { --rotation: -1.2; }
-.polaroid:nth-child(2) { --rotation: 0.8; }
-.polaroid:nth-child(3) { --rotation: -2.0; }
-.polaroid:nth-child(4) { --rotation: 1.5; }
-.polaroid:nth-child(5) { --rotation: -0.5; }
-.polaroid:nth-child(6) { --rotation: 2.2; }
-.polaroid:nth-child(7) { --rotation: -1.8; }
-.polaroid:nth-child(8) { --rotation: 0.3; }
-.polaroid:nth-child(9) { --rotation: -1.0; }
-.polaroid:nth-child(10) { --rotation: 1.8; }
-.polaroid:nth-child(11) { --rotation: -2.5; }
-.polaroid:nth-child(12) { --rotation: 1.0; }
-.polaroid:nth-child(13) { --rotation: -0.8; }
-.polaroid:nth-child(14) { --rotation: 2.0; }
-.polaroid:nth-child(15) { --rotation: -1.5; }
+/* Inclinaison aléatoire (optimisée, moins de règles) */
+.polaroid { --rotation: 0; }
+.polaroid:nth-child(odd) { --rotation: -1.2; }
+.polaroid:nth-child(even) { --rotation: 0.8; }
+.polaroid:nth-child(3n) { --rotation: -2.0; }
+.polaroid:nth-child(4n) { --rotation: 1.5; }
+.polaroid:nth-child(5n) { --rotation: -0.5; }
+.polaroid:nth-child(6n) { --rotation: 2.2; }
+.polaroid:nth-child(7n) { --rotation: -1.8; }
+.polaroid:nth-child(8n) { --rotation: 0.3; }
+.polaroid:nth-child(9n) { --rotation: -1.0; }
+.polaroid:nth-child(10n) { --rotation: 1.8; }
+.polaroid:nth-child(11n) { --rotation: -2.5; }
+.polaroid:nth-child(12n) { --rotation: 1.0; }
+.polaroid:nth-child(13n) { --rotation: -0.8; }
+.polaroid:nth-child(14n) { --rotation: 2.0; }
+.polaroid:nth-child(15n) { --rotation: -1.5; }
 
-/* Services (accueil) – Espace fixé entre CTA et boutons */
+/* Services accueil (espace fixé) */
 .services {
     text-align: center;
     padding: 3rem 2rem;
@@ -283,22 +248,16 @@ main {
     margin: 1rem 0 2rem 0;
 }
 
-.services h2 {
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
-}
+.services h2 { font-size: 2.5rem; margin-bottom: 1rem; }
 
-.services p {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
-}
+.services p { font-size: 1.2rem; margin-bottom: 2rem; }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     max-width: 1200px;
-    margin: 0 auto 3rem auto; /* Espace fixé entre grid et CTA en bas */
+    margin: 0 auto 3rem auto; /* Espace fixé entre grid et CTA */
 }
 
 .service-btn {
@@ -318,27 +277,15 @@ main {
     box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
 }
 
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
+.service-icon { font-size: 3rem; margin-bottom: 0.5rem; }
 
-.service-btn h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
+.service-btn h3 { margin-bottom: 0.5rem; font-size: 1.5rem; }
 
-.service-btn p {
-    font-size: 1rem;
-    opacity: 0.9;
-}
+.service-btn p { font-size: 1rem; opacity: 0.9; }
 
-.cta-section {
-    margin-top: 2rem; /* Espace contrôlé entre CTA et grid */
-    text-align: center;
-}
+.cta-section { margin-top: 2rem; text-align: center; }
 
-/* À Propos – Texte aéré et photo jolie */
+/* À Propos, Contact, RDV (optimisés) */
 .about, .contact, .rdv {
     text-align: center;
     padding: 2rem 0;
@@ -347,33 +294,34 @@ main {
     margin: 2rem 0;
 }
 
-.about h2 {
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-}
+.about h2 { font-size: 2.5rem; margin-bottom: 3rem; }
 
 .about p {
-    margin-bottom: 3rem; /* Plus aéré entre paragraphes */
-    line-height: 2.0; /* Lignes très espacées pour respiration */
-    font-size: 1.15rem; /* Légèrement plus grand pour confort */
+    margin-bottom: 3rem;
+    line-height: 2.0;
+    font-size: 1.15rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    text-align: justify; /* Justification pour pro */
+    text-align: justify;
 }
 
 .about-img {
-    max-width: 85%; /* Jolie taille, imposante mais équilibrée */
-    min-height: 400px; /* Hauteur min pour élégance */
+    max-width: 85%;
+    min-height: 400px;
     height: auto;
     display: block;
     margin: 3rem auto 0;
-    padding: 2rem; /* Cadre doux */
-    border-radius: 25px; /* Coins arrondis élégants */
-    box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4); /* Shadow bleue douce, pas flashy */
-    border: 2px solid rgba(255, 255, 255, 0.2); /* Bordure subtile */
-    object-fit: cover; /* Si photo haute/large, fit bien */
+    padding: 2rem;
+    border-radius: 25px;
+    box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
 }
+
+.contact-img, .rdv-img { margin-top: 2rem; }
+
+.contact-img img, .rdv-img img { max-width: 100%; border-radius: 10px; }
 
 form {
     max-width: 500px;
@@ -392,9 +340,7 @@ input, textarea {
     font-size: 1rem;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #a5b4fc;
-}
+input::placeholder, textarea::placeholder { color: #a5b4fc; }
 
 input:focus, textarea:focus {
     outline: 2px solid #1e3a8a;
@@ -451,22 +397,13 @@ input:focus, textarea:focus {
     background: rgba(74, 222, 128, 0.1);
 }
 
-.contact-img {
-    margin-top: 2rem;
-}
-
-.contact-img img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
 .rdv iframe {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     margin: 2rem 0;
 }
 
-/* Étoiles left-to-right */
+/* Étoiles left-to-right (optimisé) */
 .star-rating {
     display: flex;
     flex-direction: row;
@@ -478,10 +415,36 @@ input:focus, textarea:focus {
     font-family: 'Arial', sans-serif;
 }
 
-.star-rating input[type="radio"] {
-    display: none;
-}
+.star-rating input[type="radio"] { display: none; }
 
 .star-rating label {
     color: #a5b4fc;
-    transition:
+    transition: all 0.3s ease;
+    margin: 0;
+    padding: 0.2rem;
+    position: relative;
+    text-shadow: none;
+}
+
+.star-rating label:hover,
+.star-rating input[type="radio"]:checked + label,
+.star-rating input[type="radio"]:checked + label ~ label {
+    color: #fbbf24;
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.3);
+    transform: scale(1.1);
+}
+
+.star-rating input[type="radio"]:checked + label { color: #f59e0b; }
+
+/* Barre progression (optimisé) */
+.progress-container {
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.progress-container.visible { opacity: 1; }
