@@ -122,20 +122,21 @@ main {
 
 /* Styles pour Corkboard (tableau en liège réaliste avec image texture) */
 .corkboard {
-    background-image: url('images/cork-texture.jpg'); /* Upload ta texture liège ici – réaliste ! */
-    background-size: 100px 100px; /* Taille tuile pour répétition */
-    background-repeat: repeat; /* Répète pour couvrir tout */
-    padding: 4rem; /* Plus d'espace pour naturel */
-    border-radius: 25px; /* Coins plus arrondis */
+    background-image: url('images/cork-texture.jpg'); /* Upload ta texture liège ici – réaliste ! Fallback si pas uploadée */
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    fallback: linear-gradient(135deg, #d2b48c 0%, #c19a6b 50%, #d2b48c 100%); /* Dégradé si image manquante */
+    padding: 4rem;
+    border-radius: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; /* Espacement naturel, dispersé */
-    gap: 3rem; /* Gap augmenté pour plus d'air entre Polaroids */
+    gap: 3.5rem; /* Gap augmenté pour plus d'air entre Polaroids */
     margin: 2rem 0;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.2); /* Profondeur liège + ombre extérieure */
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.2);
     position: relative;
     overflow: hidden;
-    min-height: 600px; /* Hauteur min pour s'adapter aux 15 Polaroids */
+    min-height: 800px; /* Hauteur pour 15 Polaroids */
 }
 
 .corkboard::before {
@@ -145,68 +146,68 @@ main {
     left: 0;
     right: 0;
     bottom: 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(0,0,0,0.05) 15px, rgba(0,0,0,0.05) 17px); /* Grains subtils sur texture */
+    background: repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(0,0,0,0.05) 15px, rgba(0,0,0,0.05) 17px);
     pointer-events: none;
     opacity: 0.8;
 }
 
 /* Polaroids plus grands et réalistes (vrai format avec frame blanche) */
 .polaroid {
-    width: 250px; /* Plus grand pour réalisme */
-    height: 320px; /* Hauteur augmentée pour Polaroid classique */
-    background: #fff; /* Fond blanc pur */
-    border-radius: 15px; /* Coins arrondis doux */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5); /* Ombre vintage + inner glow */
+    width: 260px; /* Plus grand pour réalisme */
+    height: 340px; /* Hauteur augmentée pour Polaroid classique */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5);
     position: relative;
-    transform: rotate(calc(var(--rotation, 0) * 1deg)); /* Inclinaison aléatoire */
-    transition: transform 0.4s ease-out; /* Transition plus lente pour naturel */
-    overflow: hidden; /* Cache débordements frame */
+    transform: rotate(calc(var(--rotation, 0) * 1deg));
+    transition: transform 0.4s ease-out;
+    overflow: hidden;
 }
 
 .polaroid:hover {
-    transform: rotate(calc(var(--rotation, 0) * 1deg)) translateY(-8px); /* Lift subtil sur hover (plus détendu que scale) */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4); /* Ombre plus prononcée sur hover */
+    transform: rotate(calc(var(--rotation, 0) * 1deg)) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 /* Frame Polaroid authentique (bordure blanche autour de la photo) */
-.polaroid .photo-frame {
-    width: 210px; /* Photo centrée, 20px bordure blanche de chaque côté */
-    height: 170px;
-    margin: 20px auto 30px; /* Espacement pour frame + bande blanche en bas */
-    background: #fff; /* Frame blanche */
+.photo-frame {
+    width: 220px; /* Photo centrée, 20px bordure blanche de chaque côté */
+    height: 180px;
+    margin: 20px auto 40px; /* Espacement pour frame + bande blanche en bas */
+    background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1); /* Bordure intérieure subtile */
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.1);
 }
 
-.polaroid img {
+.photo-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-/* Bande blanche en bas (classique Polaroid pour "date" – vide ici pour naturel) */
+/* Bande blanche en bas (classique Polaroid) */
 .polaroid::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 40px; /* Bande blanche en bas */
+    height: 50px; /* Bande blanche en bas plus large */
     background: #fff;
     border-radius: 0 0 15px 15px;
 }
 
-/* Punaise plus réaliste (CSS : tête ronde + tige) */
+/* Punaise plus réaliste (CSS : tête ronde + tige + ombre) */
 .pin {
     position: absolute;
-    top: -15px; /* Plus haut pour réalisme */
+    top: -18px; /* Plus haut pour réalisme */
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 }
 
 .pin::before {
@@ -214,24 +215,24 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    width: 12px;
-    height: 12px;
-    background: #ccc; /* Tête ronde grise */
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, #ddd 0%, #bbb 70%, #999 100%); /* Tête ronde grise avec gradient */
     border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Ombre tête */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.5); /* Ombre + inner light */
 }
 
 .pin::after {
     content: '';
     position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 8px;
-    height: 20px;
-    background: #8b4513; /* Tige marron */
-    border-radius: 4px;
-    transform: rotate(45deg); /* Légère inclinaison pour naturel */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2); /* Ombre tige */
+    top: 7px;
+    left: 7px;
+    width: 10px;
+    height: 25px;
+    background: linear-gradient(to bottom, #8b4513 0%, #a0522d 100%); /* Tige marron gradient */
+    border-radius: 5px 5px 2px 2px;
+    transform: rotate(20deg); /* Inclinaison pour naturel */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Ombre tige */
 }
 
 .polaroid.empty {
@@ -244,6 +245,7 @@ main {
     color: #666;
     font-style: italic;
     padding: 1rem;
+    min-height: 200px; /* Hauteur pour texte */
 }
 
 .empty-text {
@@ -253,193 +255,17 @@ main {
 }
 
 /* Inclinaison aléatoire pour chaque Polaroid (détendu et naturel) */
-.polaroid:nth-child(odd) { --rotation: -1.5; }
-.polaroid:nth-child(even) { --rotation: 1.2; }
-.polaroid:nth-child(3n) { --rotation: -2.5; }
-.polaroid:nth-child(5n) { --rotation: 2; }
-.polaroid:nth-child(7n) { --rotation: -1; }
-.polaroid:nth-child(11n) { --rotation: 1.8; }
-.polaroid:nth-child(13n) { --rotation: -0.5; }
-
-/* Responsive pour corkboard et Polaroids (plus petit sur mobile) */
-@media (max-width: 768px) {
-    .corkboard {
-        padding: 2rem;
-        gap: 2rem;
-        justify-content: center; /* Centre sur mobile pour naturel */
-    }
-    .polaroid {
-        width: 200px;
-        height: 260px;
-    }
-    .polaroid .photo-frame {
-        width: 160px;
-        height: 130px;
-        margin: 15px auto 25px;
-    }
-    .empty-text {
-        font-size: 0.9rem;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .hero h2 {
-        font-size: 2rem;
-    }
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .about p {
-        font-size: 1rem;
-        line-height: 1.7;
-    }
-    .about-img {
-        max-width: 100%;
-        min-height: 250px;
-        padding: 1rem;
-        margin: 1.5rem auto 0;
-    }
-    .star-rating {
-        font-size: 1.8rem;
-        gap: 0.2rem;
-    }
-    .checkbox-label {
-        padding: 0.3rem;
-    }
-    .progress-container {
-        max-width: 250px;
-    }
-    main {
-        padding: 1rem;
-    }
-}
-
-/* Reste des styles (étoiles, checkboxes, etc. – inchangés) */
-.star-rating {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.3rem;
-    margin: 1rem 0;
-    font-size: 2.2rem;
-    cursor: pointer;
-    font-family: 'Arial', sans-serif;
-}
-
-.star-rating input[type="radio"] {
-    display: none;
-}
-
-.star-rating label {
-    color: #a5b4fc;
-    transition: all 0.3s ease;
-    margin: 0;
-    padding: 0.2rem;
-    position: relative;
-    text-shadow: none;
-}
-
-.star-rating label:hover,
-.star-rating input[type="radio"]:checked + label,
-.star-rating input[type="radio"]:checked + label ~ label {
-    color: #fbbf24;
-    text-shadow: 0 0 8px rgba(251, 191, 36, 0.3);
-    transform: scale(1.1);
-}
-
-.star-rating input[type="radio"]:checked + label {
-    color: #f59e0b;
-}
-
-.progress-container {
-    margin: 1rem 0;
-    width: 100%;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.progress-container.visible {
-    opacity: 1;
-}
-
-.progress-bar {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    height: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.progress-fill {
-    background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
-    height: 100%;
-    width: 0%;
-    border-radius: 10px;
-    transition: width 0.5s ease;
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
-}
-
-.checkboxes {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin: 1rem 0;
-    text-align: left;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #ffffff;
-    padding: 0.5rem;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-}
-
-.checkbox-label:hover {
-    background: rgba(251, 191, 36, 0.1);
-    color: #fbbf24;
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-}
-
-.checkbox-label input[type="checkbox"] {
-    margin-right: 0.5rem;
-    width: auto;
-    background: rgba(255,255,255,0.2);
-    accent-color: #fbbf24;
-    transition: all 0.3s ease;
-}
-
-.checkbox-label input[type="checkbox"]:checked {
-    animation: checkBounce 0.5s ease;
-    box-shadow: 0 0 5px #4ade80;
-}
-
-@keyframes checkBounce {
-    0% { transform: scale(0.8); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.checkbox-label.checked {
-    border: 2px solid #4ade80;
-    background: rgba(74, 222, 128, 0.1);
-}
-
-.about-img {
-    max-width: 90%;
-    min-height: 300px;
-    height: auto;
-    display: block;
-    margin: 3rem auto 0;
-    padding: 1.5rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px
+.polaroid:nth-child(1) { --rotation: -1.2; }
+.polaroid:nth-child(2) { --rotation: 0.8; }
+.polaroid:nth-child(3) { --rotation: -2.0; }
+.polaroid:nth-child(4) { --rotation: 1.5; }
+.polaroid:nth-child(5) { --rotation: -0.5; }
+.polaroid:nth-child(6) { --rotation: 2.2; }
+.polaroid:nth-child(7) { --rotation: -1.8; }
+.polaroid:nth-child(8) { --rotation: 0.3; }
+.polaroid:nth-child(9) { --rotation: -1.0; }
+.polaroid:nth-child(10) { --rotation: 1.8; }
+.polaroid:nth-child(11) { --rotation: -2.5; }
+.polaroid:nth-child(12) { --rotation: 1.0; }
+.polaroid:nth-child(13) { --rotation: -0.8; }
+.polaroid:nth-child(14) { --rotation: 2
