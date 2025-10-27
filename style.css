@@ -401,7 +401,9 @@ footer p {
     display: flex;
     align-items: center;
     padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     cursor: pointer;
 }
