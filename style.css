@@ -420,7 +420,6 @@ footer p {
     transition: all 0.3s ease;
     cursor: pointer;
     animation: fadeIn 0.8s ease-out 1s both;
-    max-width: 100%;
 }
 
 .checkbox-label:hover {
