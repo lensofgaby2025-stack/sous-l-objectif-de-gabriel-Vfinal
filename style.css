@@ -407,6 +407,7 @@ footer p {
     gap: 0.8rem;
     width: 100%;
     text-align: left;
+    max-width: 500px;
 }
 
 .checkbox-label {
