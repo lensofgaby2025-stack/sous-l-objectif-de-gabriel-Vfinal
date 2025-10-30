@@ -25,39 +25,23 @@
         <section class="contact">
             <h2>Contactez-nous</h2>
             <p>Envoyez-nous un message pour discuter de votre projet photo.</p>
-
             <form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form">
                 <input type="text" name="nom" placeholder="Votre nom" required>
                 <input type="text" name="lieu" placeholder="Lieu du projet (ex. ville ou salle)" required>
                 <input type="tel" name="telephone" placeholder="Votre numéro de téléphone (ex. 06 XX XX XX XX)" required>
                 <input type="email" name="email" placeholder="Votre email (optionnel)">
-
+                
                 <label>Sélectionnez les styles de photo qui vous intéressent :</label>
                 <div class="checkboxes">
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="styles[]" value="Shooting Pub">
-                        <span>📸 Shooting Pub</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="styles[]" value="Shooting Événement">
-                        <span>🎉 Shooting Événement</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="styles[]" value="Shooting Personnel">
-                        <span>👤 Shooting Personnel</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="styles[]" value="Mariage">
-                        <span>💒 Mariage</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="styles[]" value="Événement">
-                        <span>🎊 Événement</span>
-                    </label>
+                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Pub"> 📸 Shooting Pub</label>
+                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Événement"> 🎉 Shooting Événement</label>
+                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Personnel"> 👤 Shooting Personnel</label>
+                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Mariage"> 💒 Mariage</label>
+                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Événement"> 🎊 Événement</label>
                 </div>
-
+                
                 <textarea name="message" placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..." rows="5" required></textarea>
-
+                
                 <label>Notez votre intérêt pour nos services (étoiles) :</label>
                 <div class="star-rating">
                     <input type="radio" id="star1" name="note" value="1" /><label for="star1" title="1 étoile">⭐</label>
@@ -66,16 +50,15 @@
                     <input type="radio" id="star4" name="note" value="4" /><label for="star4" title="4 étoiles">⭐</label>
                     <input type="radio" id="star5" name="note" value="5" /><label for="star5" title="5 étoiles">⭐</label>
                 </div>
-
+                
                 <div class="progress-container">
                     <div class="progress-bar">
                         <div class="progress-fill"></div>
                     </div>
                 </div>
-
+                
                 <button type="submit" class="btn">Envoyer</button>
             </form>
-
             <div class="contact-img">
                 <img src="images/contact-style.jpg" alt="Illustration style contact pour photographie">
             </div>
