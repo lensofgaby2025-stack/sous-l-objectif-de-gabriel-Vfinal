@@ -1,72 +1,131 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'Objectif de Gabriel - Photographie Mariage, Événements & Shootings</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formulaire styles de photo</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 30px;
+  }
+  .form-container {
+    max-width: 400px;
+    margin: auto;
+    background: rgba(255 255 255 / 0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+  .checkbox-item {
+    background: rgba(255 255 255 / 0.15);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255 255 255 / 0.3);
+    border-radius: 5px;
+    width: 160px; /* même largeur pour tous */
+    height: 80px; /* même hauteur pour tous */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 15px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    user-select: none;
+  }
+  .checkbox-item input[type="checkbox"] {
+    transform: scale(1.3);
+    margin: 0;
+  }
+  .checkbox-label-text {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: 1.2;
+  }
+  /* Pour centrer emoji et texte verticalement */
+  .emoji {
+    font-size: 1.6em;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255 255 255 / 0.3);
+    background: rgba(255 255 255 / 0.1);
+    color: white;
+    padding: 10px;
+    font-family: monospace, monospace;
+    resize: vertical;
+    box-shadow: inset 0 0 5px rgba(255 255 255 / 0.2);
+  }
+  textarea::placeholder {
+    color: rgba(255 255 255 / 0.7);
+  }
+  /* Pour faciliter le click sur la bulle tout entière */
+  .checkbox-item input[type="checkbox"] {
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>L'Objectif de Gabriel</h1>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="rdv.html">Prendre RDV</a></li>
-                <li><a href="cliches-favoris.html">Mes Clichés Favoris</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="form-container">
+    <h2>Sélectionnez les styles de photo qui vous intéressent :</h2>
+    <form>
+      <div class="checkbox-group">
+        <label class="checkbox-item">
+          <input type="checkbox" name="style" value="shooting-pub" />
+          <span class="checkbox-label-text">
+            <span class="emoji">📸</span>
+            Shooting<br/>Pub
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="style" value="shooting-evenement" />
+          <span class="checkbox-label-text">
+            <span class="emoji">🎉</span>
+            Shooting<br/>Événement
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="style" value="shooting-personnel" />
+          <span class="checkbox-label-text">
+            <span class="emoji">🧑‍💼</span>
+            Shooting<br/>Personnel
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="style" value="mariage" />
+          <span class="checkbox-label-text">
+            <span class="emoji">🏠</span>
+            Mariage
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="style" value="evenement" />
+          <span class="checkbox-label-text">
+            <span class="emoji">🎊</span>
+            Événement
+          </span>
+        </label>
+      </div>
 
-    <main>
-        <section class="hero">
-            <h2>Photographie d'exception pour vos moments uniques</h2>
-            <p>Mariages, événements, shootings pub ou personnels – Capturons l'essence de vos souvenirs.</p>
-        </section>
-
-        <section class="services">
-            <h2>Nos Réalisations</h2>
-            <p>Découvrez nos spécialités en photographie.</p>
-            <div class="services-grid">
-                <a href="mariage.html" class="service-btn">
-                    <div class="service-icon">💒</div>
-                    <h3>Mariage</h3>
-                    <p>Capturez l'émotion de votre jour J avec élégance.</p>
-                </a>
-                <a href="evenement.html" class="service-btn">
-                    <div class="service-icon">🎉</div>
-                    <h3>Événement</h3>
-                    <p>Immortalisez vos rassemblements inoubliables.</p>
-                </a>
-                <a href="shooting-pub.html" class="service-btn">
-                    <div class="service-icon">📸</div>
-                    <h3>Shooting Pub</h3>
-                    <p>Photos professionnelles pour vos campagnes publicitaires.</p>
-                </a>
-                <a href="shooting-personnel.html" class="service-btn">
-                    <div class="service-icon">👤</div>
-                    <h3>Shooting Personnel</h3>
-                    <p>Portraits uniques pour vos projets personnels.</p>
-                </a>
-                <a href="cliches-favoris.html" class="service-btn">
-                    <div class="service-icon">📸</div>
-                    <h3>Mes Clichés Favoris</h3>
-                    <p>Une sélection de mes photos préférées.</p>
-                </a>
-            </div>
-            <div class="cta-section">
-                <a href="contact.html" class="btn">Prêt pour votre projet ? Contactez-nous</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 L'Objectif de Gabriel. Soutenue part Anna Guiffard. Tous droits réservés.</p>
-    </footer>
-
-    <script src="script.js"></script>
+      <textarea placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..."></textarea>
+    </form>
+  </div>
 </body>
 </html>
