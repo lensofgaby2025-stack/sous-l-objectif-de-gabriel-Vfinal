@@ -186,3 +186,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 2500);
     });
 });
+// --- Vérification d'au moins une case cochée avant envoi du formulaire ---
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form");
+    const checkboxes = document.querySelectorAll('input[name="styles[]"]');
+
+    form.addEventListener("submit", function (event) {
+        const auMoinsUneCochee = Array.from(checkboxes).some(cb => cb.checked);
+        if (!auMoinsUneCochee) {
+            event.preventDefault();
+            alert("⚠️ Veuillez sélectionner au moins un style de photo avant d'envoyer votre message.");
+        }
+    });
+});
