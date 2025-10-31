@@ -314,3 +314,29 @@ footer p {
   border-color: rgba(255,255,255,0.3);
   transform: translateY(-2px);
 }
+/* Effet "ripple" sur les cartes */
+.option-card {
+  position: relative;
+  overflow: hidden; /* important pour contenir l'effet */
+}
+
+.option-card::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.option-card:active::after {
+  transform: scale(6);
+  opacity: 1;
+  top: var(--y);
+  left: var(--x);
+  transition: 0s;
+}
