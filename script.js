@@ -207,3 +207,19 @@ document.querySelectorAll('.btn').forEach(button => {
         }, 600);
     });
 });
+// Effet de confirmation sur le bouton "Envoyer"
+document.querySelectorAll('.btn[type="submit"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault(); // empêche le rechargement immédiat du formulaire
+
+        // Animation du bouton
+        btn.classList.add('sent');
+        btn.innerHTML = '✅ Message envoyé !';
+
+        // Retour à l’état normal après 2,5 secondes
+        setTimeout(() => {
+            btn.classList.remove('sent');
+            btn.innerHTML = 'Envoyer';
+        }, 2500);
+    });
+});
