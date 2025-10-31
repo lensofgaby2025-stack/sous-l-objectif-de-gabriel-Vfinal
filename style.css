@@ -450,55 +450,48 @@ footer p {
     font-size: 0.9rem;
     opacity: 0.8;
 }
-/* ---------- À PROPOS (nouvelle mise en page) ---------- */
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    max-width: 1000px;
+/* ---------- À PROPOS (photo en dessous + texte aéré) ---------- */
+.about {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    max-width: 900px;
     margin: 0 auto;
-    flex-wrap: wrap;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
 }
 
 .about-text {
-    flex: 1 1 55%;
     text-align: justify;
     font-size: 1.1rem;
-    line-height: 1.8;
+    line-height: 1.9;
+    color: #e5e7eb;
+    margin-bottom: 2.5rem;
 }
 
-.about-text h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+.about-text p {
+    margin-bottom: 1.2rem;
 }
 
+/* Photo centrée sous le texte */
 .about-photo {
-    flex: 1 1 40%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .about-photo img {
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-photo img:hover {
     transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-text {
-        text-align: left;
-    }
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
