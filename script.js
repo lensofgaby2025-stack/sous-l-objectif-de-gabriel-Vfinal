@@ -145,104 +145,44 @@ document.addEventListener('DOMContentLoaded', function() {
         if (note) console.log('Note envoyée : ' + note.value + ' étoiles');
     });
 });
-// ---------- ANIMATION ENVOI FORMULAIRE ----------
+/* ---------- ENVOI FORMULAIRE FORMspree + RESET + ANIM ---------- */
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".contact-form");
     const submitBtn = form?.querySelector(".btn");
 
-    if (form && submitBtn) {
-        form.addEventListener("submit", (e) => {
-            // Si tu veux garder l’envoi réel vers formspree, supprime la ligne suivante :
-            e.preventDefault(); 
-
-            // Sauvegarde du texte original
-            const originalText = submitBtn.textContent;
-
-            // Animation d'envoi
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `
-                <span class="loading-dots">
-                    <span>.</span><span>.</span><span>.</span>
-                </span> Envoi... 
-            `;
-            submitBtn.classList.add("sending");
-
-            // Simule un délai de 2 secondes (tu peux ajuster)
-            setTimeout(() => {
-                submitBtn.innerHTML = "✅ Message envoyé !";
-                submitBtn.classList.remove("sending");
-                submitBtn.classList.add("sent");
-
-                // Retour à l’état normal après 2 secondes
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove("sent");
-                    form.reset();
-                }, 2000);
-            }, 2000);
-        });
-    }
-});
-// Effet "onde lumineuse" au clic sur les boutons .btn
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('click', function (e) {
-        // Créer l'élément "onde"
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-
-        // Positionner l'onde au point du clic
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-
-        // Ajouter l'onde dans le bouton
-        this.appendChild(ripple);
-
-        // Supprimer après l'animation
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
-// Effet de confirmation sur le bouton "Envoyer"
-document.querySelectorAll('.btn[type="submit"]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault(); // empêche le rechargement immédiat du formulaire
-
-        // Animation du bouton
-        btn.classList.add('sent');
-        btn.innerHTML = '✅ Message envoyé !';
-
-        // Retour à l’état normal après 2,5 secondes
-        setTimeout(() => {
-            btn.classList.remove('sent');
-            btn.innerHTML = 'Envoyer';
-        }, 2500);
-    });
-});
-/* ---------- FORMULAIRE CONTACT (envoi + reset) ---------- */
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contactForm");
-    if (!form) return; // Sécurité : si pas de formulaire sur la page, on arrête ici
+    if (!form || !submitBtn) return;
 
     form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Empêche le rechargement automatique
 
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" }
-        });
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Envoi...";
+        submitBtn.classList.add("sending");
 
-        if (response.ok) {
-            alert("📸 Merci ! Votre message a bien été envoyé.");
-            form.reset(); // Vide tous les champs
-        } else {
-            alert("⚠️ Oups, une erreur est survenue. Réessayez plus tard.");
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" },
+            });
+
+            if (response.ok) {
+                submitBtn.textContent = "✅ Message envoyé !";
+                submitBtn.classList.add("sent");
+                form.reset(); // Réinitialise les champs
+            } else {
+                submitBtn.textContent = "⚠️ Erreur, réessayez";
+            }
+        } catch (error) {
+            submitBtn.textContent = "❌ Échec de l'envoi";
         }
+
+        // Retour à l'état normal après 2,5 secondes
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove("sending", "sent");
+        }, 2500);
     });
 });
