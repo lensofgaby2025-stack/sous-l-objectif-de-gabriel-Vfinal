@@ -6,67 +6,8 @@
     <title>Accueil - L'Objectif de Gabriel</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* === Effets dynamiques supplémentaires === */
-
-        /* Animation d’apparition fluide */
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* Animation des éléments au chargement */
-        .hero, .services, .cta-section {
-          animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* Boutons fluides */
-        .btn {
-          transition: all 0.3s ease;
-          transform: scale(1);
-        }
-
-        .btn:hover {
-          transform: scale(1.05);
-          box-shadow: 0 0 20px rgba(77,166,255,0.5);
-        }
-
-        /* Effet zoom + lueur sur les services */
-        .service-btn {
-          transition: all 0.35s ease;
-          transform: translateY(0);
-        }
-
-        .service-btn:hover {
-          transform: translateY(-6px) scale(1.03);
-          box-shadow: 0 10px 25px rgba(77,166,255,0.35);
-          background: rgba(77,166,255,0.1);
-        }
-
-        /* Effet progressif au survol du texte */
-        .service-btn h3, .service-btn p {
-          transition: color 0.3s ease;
-        }
-
-        .service-btn:hover h3 {
-          color: #a5b4fc;
-        }
-
-        .service-btn:hover p {
-          color: #e0e7ff;
-        }
-    </style>
 </head>
-
 <body>
-    <!-- HEADER -->
     <header>
         <nav>
             <h1>L'Objectif de Gabriel</h1>
@@ -118,7 +59,6 @@
                 </a>
             </div>
 
-            <!-- BOUTON MES CLICHÉS FAVORIS -->
             <div class="services-grid" style="margin-top: 2rem;">
                 <a href="cliches-favoris.html" class="service-btn favoris">
                     <div class="service-icon">🌟</div>
@@ -127,7 +67,6 @@
                 </a>
             </div>
 
-            <!-- BOUTON RÉSERVER -->
             <div class="cta-section">
                 <h2>Envie de réserver votre séance photo ?</h2>
                 <a href="rdv.html" class="btn">Prendre Rendez-vous</a>
@@ -135,7 +74,6 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2025 L'Objectif de Gabriel - Tous droits réservés.</p>
     </footer>
