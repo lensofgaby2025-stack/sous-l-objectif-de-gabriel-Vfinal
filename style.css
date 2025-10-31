@@ -5,22 +5,8 @@ body {
     background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 50%, #3730a3 100%);
     color: #ffffff;
     line-height: 1.6;
-    animation: fadeIn 1s ease-in;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-main section { animation: slideUp 0.8s ease-out; }
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- HEADER ---------- */
 header {
     background: rgba(10, 37, 64, 0.95);
     padding: 1rem;
@@ -52,7 +38,6 @@ nav a {
 
 nav a:hover, nav a.active { color: #a5b4fc; }
 
-/* ---------- MAIN ---------- */
 main {
     margin-top: 80px;
     padding: 2rem;
@@ -60,7 +45,6 @@ main {
     margin: 80px auto 0;
 }
 
-/* ---------- HERO ---------- */
 .hero {
     text-align: center;
     padding: 4rem 0;
@@ -79,108 +63,28 @@ main {
     margin-bottom: 2rem;
 }
 
-/* ---------- BUTTONS (version améliorée & naturelle) ---------- */
 .btn {
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(55, 48, 163, 0.9));
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
     color: #ffffff;
-    padding: 1rem 2.2rem;
+    padding: 1rem 2rem;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 5px;
     display: inline-block;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
     box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(6px);
-    position: relative;
-    overflow: hidden;
-    font-weight: 500;
-    letter-spacing: 0.5px;
 }
 
-/* Lumière douce qui glisse au survol */
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.15), transparent 70%);
-    transition: all 0.5s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-/* Effet d’ombre et translation naturelle au survol */
-.btn {
-    background: linear-gradient(135deg, #1e3a8a, #3730a3);
-    color: #ffffff;
-    padding: 1rem 2.2rem;
-    text-decoration: none;
-    border-radius: 8px;
-    display: inline-block;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-    border: none;
-    position: relative;
-    overflow: hidden;
-    margin-top: 1.5rem; /* ajoute un peu d’espace au-dessus */
-}
-
-/* Effet lumineux doux au survol */
-.btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent 80%);
-    transition: all 0.5s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-/* Effet au survol */
 .btn:hover {
-    background: linear-gradient(135deg, #0a2540, #1e3a8a);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
+    background: linear-gradient(135deg, #0a2540 0%, #1e3a8a 100%);
+    transform: translateY(-2px);
 }
 
-/* Effet clic */
-.btn:active {
-    transform: scale(0.97);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) inset;
-}
-
-/* Variante bouton plus petit */
 .btn.small {
-    padding: 0.6rem 1.2rem;
+    padding: 0.5rem 1rem;
     font-size: 0.9rem;
     margin-top: 0.5rem;
 }
-/* ---------- Bouton Envoyer (version améliorée) ---------- */
-.contact-form button.btn {
-    margin-top: 2rem;
-    padding: 1.2rem 2.8rem;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #1e3a8a, #3730a3);
-    transition: all 0.3s ease;
-}
 
-.contact-form button.btn:hover {
-    background: linear-gradient(135deg, #0a2540, #1e3a8a);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(30,58,138,0.5);
-}
-
-/* ---------- SERVICES ---------- */
 .services {
     text-align: center;
     padding: 3rem 2rem;
@@ -231,7 +135,6 @@ main {
 .service-btn h3 { margin-bottom: 0.5rem; font-size: 1.5rem; }
 .service-btn p { font-size: 1rem; opacity: 0.9; }
 
-/* ---------- CTA SECTION ---------- */
 .cta-section {
     margin-top: 2rem;
     text-align: center;
@@ -242,18 +145,11 @@ main {
     font-size: 2rem;
 }
 
-/* ---------- CONTACT ---------- */
 .contact {
     text-align: center;
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
-    animation: fadeInUp 1s ease-out;
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 .contact h2 {
@@ -284,14 +180,6 @@ main {
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
     font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: 2px solid #1e3a8a;
-    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
-    transform: scale(1.02);
 }
 
 .contact-form input::placeholder,
@@ -299,169 +187,23 @@ main {
     color: #a5b4fc;
 }
 
-.contact-form label {
-    color: #ffffff;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    align-self: flex-start;
-}
-.checkbox-error-message {
-    display: none;
-    color: #f87171; /* rouge doux */
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    border-radius: 6px;
-    padding: 0.6rem 1rem;
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    text-align: left;
-    width: 100%;
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- CHECKBOXES ---------- */
-/* --- SECTION CONTACT AMÉLIORÉE --- */
-.checkboxes {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    text-align: left;
-    align-items: center;
-}
-
-/* Style des cases à cocher */
 .checkbox-label {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 500px;
-    padding: 1rem 1.2rem;
+    padding: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.25s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Alignement parfait des cases de sélection */
-.checkbox-label input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 22px;
-    height: 22px;
-    margin-right: 1rem;
-    border: 2px solid #fbbf24;
     border-radius: 5px;
-    background-color: transparent;
-    cursor: pointer;
-    position: relative;
+    background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-/* Effet quand la case est cochée */
-.checkbox-label input[type="checkbox"]:checked {
-    background-color: #fbbf24;
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
-}
-
-/* Petit check qui apparaît en douceur */
-.checkbox-label input[type="checkbox"]:checked::after {
-    content: "✓";
-    color: #0a2540;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -52%);
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-/* Animation fluide au survol */
 .checkbox-label:hover {
-    transform: scale(1.03);
-    background: rgba(251, 191, 36, 0.15);
-    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.25);
+    background: rgba(251, 191, 36, 0.1);
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2);
 }
 
-/* Quand la case est active (cliquée) */
-.checkbox-label:active {
-    transform: scale(0.98);
-}
-
-/* Pour mobile : boutons plus larges mais lisibles */
-@media (max-width: 600px) {
-    .checkbox-label {
-        max-width: 100%;
-        padding: 1rem;
-        font-size: 1rem;
-    }
-
-    .checkbox-label input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-        margin-right: 0.8rem;
-    }
-}
-/* ---------- STAR RATING (corrigé + sens gauche→droite + effet lisse) ---------- */
-.star-rating {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 0.7rem;
-    font-size: 3rem; /* taille augmentée */
-    color: #888;
-    cursor: pointer;
-    user-select: none;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-}
-
-.star-rating input {
-    display: none;
-}
-
-.star-rating label {
-    transition: color 0.25s ease, transform 0.2s ease;
-}
-
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: #fbbf24;
-    transform: scale(1.15);
-}
-
-.star-rating input:checked ~ label {
-    color: #fbbf24;
-    text-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
-}
-
-/* Correction de la direction des étoiles (gauche à droite) */
-.star-rating {
-    direction: ltr;
-}
-
-
-/* ---------- PROGRESS BAR ---------- */
-.progress-container {
-    width: 100%;
-    max-width: 300px;
-    margin: 1rem auto;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.progress-container.visible { opacity: 1; }
-
-/* ---------- FOOTER ---------- */
 footer {
     text-align: center;
     padding: 1rem;
@@ -472,121 +214,4 @@ footer {
 footer p {
     font-size: 0.9rem;
     opacity: 0.8;
-}
-/* ---------- À PROPOS (version magazine élégante) ---------- */
-.about {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    border-radius: 15px;
-    padding: 3rem 2rem;
-    max-width: 900px;
-    margin: 3rem auto;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-}
-
-.about h2 {
-    font-size: 2.6rem;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.about p {
-    text-align: justify;
-    font-size: 1.1rem;
-    line-height: 1.9;
-    color: #e5e7eb;
-    margin-bottom: 1.3rem;
-    padding: 0 1rem;
-}
-
-/* Conteneur photo centrée */
-.about-photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2.5rem;
-}
-
-/* Style de la photo */
-.about-photo img {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.4s ease;
-}
-
-.about-photo img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Animation d’apparition douce */
-@keyframes fadeInAbout {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.about {
-    animation: fadeInAbout 0.8s ease-in-out;
-}
-/* ---------- Animation d'apparition fluide de la section À propos ---------- */
-.about {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: appearSmooth 1s ease-out forwards;
-}
-
-@keyframes appearSmooth {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-        filter: blur(6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-/* ---------- Apparition fluide et homogène pour toutes les sections principales ---------- */
-main section {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: pageFadeIn 1s ease-out forwards;
-    animation-fill-mode: forwards; /* ✅ Empêche la disparition après l'animation */
-}
-
-/* ---------- Animation clé ---------- */
-@keyframes pageFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-        filter: blur(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-}
-
-/* ---------- Pour un effet un peu plus progressif entre sections longues ---------- */
-main section:nth-of-type(2) {
-    animation-delay: 0.2s;
-}
-
-main section:nth-of-type(3) {
-    animation-delay: 0.4s;
 }
