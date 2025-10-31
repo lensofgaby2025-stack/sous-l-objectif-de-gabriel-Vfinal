@@ -34,14 +34,43 @@
                 <label for="message">Votre message *</label>
                 <textarea id="message" name="message" rows="5" placeholder="Décrivez votre demande" required></textarea>
 
-                <label>Type de shooting souhaité *</label>
-                <div class="checkboxes">
-                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Shooting Publicitaire"> 📸 Shooting Pub</label>
-                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Shooting Événementiel"> 🎉 Shooting Événement</label>
-                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Shooting Personnel"> 👤 Shooting Personnel</label>
-                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Mariage"> 💒 Mariage</label>
-                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Événement"> 🎊 Événement</label>
-                </div>
+               <div class="form-group">
+  <label for="shooting-type">Type de shooting souhaité *</label>
+  <div class="shooting-options">
+    <label class="shooting-option">
+      <input type="checkbox" name="shooting_type" value="pub">
+      <div class="option-card">
+        <span class="icon">📸</span>
+        <span class="text">Shooting Pub</span>
+      </div>
+    </label>
+
+    <label class="shooting-option">
+      <input type="checkbox" name="shooting_type" value="evenement">
+      <div class="option-card">
+        <span class="icon">🎉</span>
+        <span class="text">Shooting Événement</span>
+      </div>
+    </label>
+
+    <label class="shooting-option">
+      <input type="checkbox" name="shooting_type" value="mariage">
+      <div class="option-card">
+        <span class="icon">💍</span>
+        <span class="text">Shooting Mariage</span>
+      </div>
+    </label>
+
+    <label class="shooting-option">
+      <input type="checkbox" name="shooting_type" value="personnel">
+      <div class="option-card">
+        <span class="icon">👤</span>
+        <span class="text">Shooting Personnel</span>
+      </div>
+    </label>
+  </div>
+</div>
+
 
                 <label>Votre expérience globale :</label>
                 <div class="star-rating">
