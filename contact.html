@@ -24,68 +24,58 @@
             <h2>Contactez-moi</h2>
             <p>Une question, une demande de shooting ou un projet à discuter ? Remplissez le formulaire ci-dessous :</p>
 
-            <form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form" id="contactForm">
-                <label for="name">Nom complet *</label>
-                <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+<form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form" id="contactForm">
+  <label for="name">Nom complet *</label>
+  <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
 
-                <label for="email">Adresse e-mail *</label>
-                <input type="email" id="email" name="_replyto" placeholder="Votre adresse e-mail" required>
+  <label for="email">Adresse e-mail *</label>
+  <input type="email" id="email" name="_replyto" placeholder="Votre adresse e-mail" required>
 
-                <label for="message">Votre message *</label>
-                <textarea id="message" name="message" rows="5" placeholder="Décrivez votre demande" required></textarea>
+  <!-- Type de shooting -->
+  <div class="form-group">
+    <label for="shooting-type">Type de shooting souhaité *</label>
+    <div class="shooting-options">
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting_type" value="pub">
+        <div class="option-card">
+          <span class="icon">📸</span>
+          <span class="text">Shooting Pub</span>
+        </div>
+      </label>
 
-               <div class="form-group">
-  <label for="shooting-type">Type de shooting souhaité *</label>
-  <div class="shooting-options">
-    <label class="shooting-option">
-      <input type="checkbox" name="shooting_type" value="pub">
-      <div class="option-card">
-        <span class="icon">📸</span>
-        <span class="text">Shooting Pub</span>
-      </div>
-    </label>
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting_type" value="evenement">
+        <div class="option-card">
+          <span class="icon">🎉</span>
+          <span class="text">Shooting Événement</span>
+        </div>
+      </label>
 
-    <label class="shooting-option">
-      <input type="checkbox" name="shooting_type" value="evenement">
-      <div class="option-card">
-        <span class="icon">🎉</span>
-        <span class="text">Shooting Événement</span>
-      </div>
-    </label>
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting_type" value="mariage">
+        <div class="option-card">
+          <span class="icon">💍</span>
+          <span class="text">Shooting Mariage</span>
+        </div>
+      </label>
 
-    <label class="shooting-option">
-      <input type="checkbox" name="shooting_type" value="mariage">
-      <div class="option-card">
-        <span class="icon">💍</span>
-        <span class="text">Shooting Mariage</span>
-      </div>
-    </label>
-
-    <label class="shooting-option">
-      <input type="checkbox" name="shooting_type" value="personnel">
-      <div class="option-card">
-        <span class="icon">👤</span>
-        <span class="text">Shooting Personnel</span>
-      </div>
-    </label>
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting_type" value="personnel">
+        <div class="option-card">
+          <span class="icon">👤</span>
+          <span class="text">Shooting Personnel</span>
+        </div>
+      </label>
+    </div>
   </div>
-</div>
 
+  <!-- Zone de description déplacée et retravaillée -->
+  <label for="message">Décrivez votre projet *</label>
+  <textarea id="message" name="message" rows="5" placeholder="Décrivez-nous votre projet : type de séance, lieu, ambiance souhaitée, nombre de personnes, contraintes ou envies particulières..." required></textarea>
 
-                <label>Votre expérience globale :</label>
-                <div class="star-rating">
-                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
-                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
-                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
-                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
-                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
-                </div>
-
-                <button type="submit" class="btn">Envoyer</button>
-                <p id="formMessage" class="form-message"></p>
-            </form>
-        </section>
-    </main>
+  <button type="submit" class="btn">Envoyer</button>
+  <p id="formMessage" class="form-message"></p>
+</form>
 
     <footer>
         <p>© 2025 L'Objectif de Gabriel - Tous droits réservés.</p>
