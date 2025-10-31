@@ -79,23 +79,25 @@ main {
     margin-bottom: 2rem;
 }
 
-/* ---------- BUTTONS (version améliorée) ---------- */
+/* ---------- BUTTONS (version améliorée & naturelle) ---------- */
 .btn {
-    background: linear-gradient(135deg, rgba(30,58,138,0.9), rgba(55,48,163,0.9));
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(55, 48, 163, 0.9));
     color: #ffffff;
     padding: 1rem 2.2rem;
     text-decoration: none;
     border-radius: 8px;
     display: inline-block;
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
     position: relative;
     overflow: hidden;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-/* Effet de lumière douce au survol */
+/* Lumière douce qui glisse au survol */
 .btn::before {
     content: "";
     position: absolute;
@@ -103,7 +105,7 @@ main {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, rgba(255,255,255,0.2), transparent 70%);
+    background: linear-gradient(120deg, rgba(255,255,255,0.15), transparent 70%);
     transition: all 0.5s ease;
 }
 
@@ -111,25 +113,26 @@ main {
     left: 100%;
 }
 
-/* Effet au survol */
+/* Effet d’ombre et translation naturelle au survol */
 .btn:hover {
-    background: linear-gradient(135deg, rgba(10,37,64,1), rgba(30,58,138,1));
+    background: linear-gradient(135deg, rgba(10, 37, 64, 0.95), rgba(30, 58, 138, 0.95));
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
 }
 
-/* Effet clic */
+/* Effet clic doux */
 .btn:active {
     transform: scale(0.97);
     box-shadow: 0 2px 8px rgba(0,0,0,0.3) inset;
 }
 
-/* Variante bouton plus petit */
+/* Variante plus petite */
 .btn.small {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
     margin-top: 0.5rem;
 }
+
 /* ---------- SERVICES ---------- */
 .services {
     text-align: center;
