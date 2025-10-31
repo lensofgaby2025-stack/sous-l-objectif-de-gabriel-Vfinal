@@ -212,4 +212,54 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+    /* ---------- VALIDATION FORMULAIRE (CHAMPS OBLIGATOIRES) ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form");
+    if (!form) return;
+
+    const requiredFields = form.querySelectorAll("input[required], textarea[required]");
+    const checkboxes = form.querySelectorAll('input[name="styles[]"]');
+    const errorMsg = document.querySelector(".checkbox-error-message");
+
+    form.addEventListener("submit", function (e) {
+        let valid = true;
+
+        // Vérifie tous les champs obligatoires
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.style.border = "2px solid #f87171"; // rouge doux
+                valid = false;
+            } else {
+                field.style.border = "1px solid rgba(255,255,255,0.3)";
+            }
+        });
+
+        // Vérifie les cases à cocher
+        const atLeastOneChecked = Array.from(checkboxes).some(cb => cb.checked);
+        if (!atLeastOneChecked) {
+            valid = false;
+            errorMsg.style.display = "block";
+        } else {
+            errorMsg.style.display = "none";
+        }
+
+        if (!valid) {
+            e.preventDefault();
+            form.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    });
+
+    // Enlève le rouge quand on retape ou coche
+    requiredFields.forEach(field => {
+        field.addEventListener("input", () => {
+            field.style.border = "1px solid rgba(255,255,255,0.3)";
+        });
+    });
+
+    checkboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+            const checked = Array.from(checkboxes).some(x => x.checked);
+            if (checked) errorMsg.style.display = "none";
+        });
+    });
 });
