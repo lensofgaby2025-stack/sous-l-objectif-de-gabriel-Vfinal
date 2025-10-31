@@ -6,14 +6,73 @@
     <title>Accueil - L'Objectif de Gabriel</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === Effets dynamiques supplémentaires === */
+
+        /* Animation d’apparition fluide */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Animation des éléments au chargement */
+        .hero, .services, .cta-section {
+          animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Boutons fluides */
+        .btn {
+          transition: all 0.3s ease;
+          transform: scale(1);
+        }
+
+        .btn:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 20px rgba(77,166,255,0.5);
+        }
+
+        /* Effet zoom + lueur sur les services */
+        .service-btn {
+          transition: all 0.35s ease;
+          transform: translateY(0);
+        }
+
+        .service-btn:hover {
+          transform: translateY(-6px) scale(1.03);
+          box-shadow: 0 10px 25px rgba(77,166,255,0.35);
+          background: rgba(77,166,255,0.1);
+        }
+
+        /* Effet progressif au survol du texte */
+        .service-btn h3, .service-btn p {
+          transition: color 0.3s ease;
+        }
+
+        .service-btn:hover h3 {
+          color: #a5b4fc;
+        }
+
+        .service-btn:hover p {
+          color: #e0e7ff;
+        }
+    </style>
 </head>
+
 <body>
+    <!-- HEADER -->
     <header>
         <nav>
             <h1>L'Objectif de Gabriel</h1>
             <ul>
                 <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
+                <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="rdv.html">Prendre RDV</a></li>
             </ul>
@@ -32,22 +91,26 @@
         <section class="services">
             <h2>Mes Services</h2>
             <p>Découvrez mes prestations adaptées à vos besoins.</p>
+
             <div class="services-grid">
                 <a href="mariage.html" class="service-btn">
                     <div class="service-icon">💍</div>
                     <h3>Mariage</h3>
                     <p>Immortalisez le plus beau jour de votre vie.</p>
                 </a>
+
                 <a href="evenement.html" class="service-btn">
                     <div class="service-icon">🎉</div>
                     <h3>Événementiel</h3>
                     <p>Captures authentiques de vos moments festifs.</p>
                 </a>
+
                 <a href="shooting-personnel.html" class="service-btn">
                     <div class="service-icon">📸</div>
                     <h3>Shooting Personnel</h3>
                     <p>Des portraits qui reflètent votre personnalité.</p>
                 </a>
+
                 <a href="shooting-pub.html" class="service-btn">
                     <div class="service-icon">💼</div>
                     <h3>Shooting Publicitaire</h3>
@@ -65,20 +128,16 @@
             </div>
 
             <!-- BOUTON RÉSERVER -->
-            <div style="margin-top: 3rem;">
-                <a href="rdv.html" class="btn">Réserver une séance photo</a>
+            <div class="cta-section">
+                <h2>Envie de réserver votre séance photo ?</h2>
+                <a href="rdv.html" class="btn">Prendre Rendez-vous</a>
             </div>
-        </section>
-
-        <!-- SECTION CTA -->
-        <section class="cta-section">
-            <h2>Envie de réserver votre séance photo ?</h2>
-            <a href="rdv.html" class="btn">Prendre Rendez-vous</a>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2023 L'Objectif de Gabriel. Tous droits réservés.</p>
+        <p>© 2025 L'Objectif de Gabriel - Tous droits réservés.</p>
     </footer>
 
     <script src="script.js"></script>
