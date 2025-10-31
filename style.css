@@ -114,50 +114,55 @@ main {
 }
 
 /* Effet d’ombre et translation naturelle au survol */
+.btn {
+    background: linear-gradient(135deg, #1e3a8a, #3730a3);
+    color: #ffffff;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.5rem; /* ajoute un peu d’espace au-dessus */
+}
+
+/* Effet lumineux doux au survol */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent 80%);
+    transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* Effet au survol */
 .btn:hover {
-    background: linear-gradient(135deg, rgba(10, 37, 64, 0.95), rgba(30, 58, 138, 0.95));
+    background: linear-gradient(135deg, #0a2540, #1e3a8a);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(30, 58, 138, 0.6);
 }
 
-/* Effet clic doux */
+/* Effet clic */
 .btn:active {
     transform: scale(0.97);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3) inset;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) inset;
 }
 
-/* Variante plus petite */
+/* Variante bouton plus petit */
 .btn.small {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
     margin-top: 0.5rem;
-}
-/* Effet visuel de l'onde lumineuse (ripple) */
-.btn {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn .ripple {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple-effect 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple-effect {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-/* Animation de confirmation "Envoyer" */
-.btn.sent {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.6);
-    transform: scale(1.05);
 }
 
 /* ---------- SERVICES ---------- */
