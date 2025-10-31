@@ -184,3 +184,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// Effet "onde lumineuse" au clic sur les boutons .btn
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function (e) {
+        // Créer l'élément "onde"
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+
+        // Positionner l'onde au point du clic
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+
+        // Ajouter l'onde dans le bouton
+        this.appendChild(ripple);
+
+        // Supprimer après l'animation
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
