@@ -164,6 +164,21 @@ main {
     font-size: 0.9rem;
     margin-top: 0.5rem;
 }
+/* ---------- Bouton Envoyer (version améliorée) ---------- */
+.contact-form button.btn {
+    margin-top: 2rem;
+    padding: 1.2rem 2.8rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1e3a8a, #3730a3);
+    transition: all 0.3s ease;
+}
+
+.contact-form button.btn:hover {
+    background: linear-gradient(135deg, #0a2540, #1e3a8a);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30,58,138,0.5);
+}
 
 /* ---------- SERVICES ---------- */
 .services {
@@ -396,15 +411,17 @@ main {
         margin-right: 0.8rem;
     }
 }
-/* ---------- STAR RATING (version corrigée et naturelle) ---------- */
+/* ---------- STAR RATING (corrigé + sens gauche→droite + effet lisse) ---------- */
 .star-rating {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    font-size: 3rem;
-    color: #ccc;
+    flex-direction: row;
+    gap: 0.7rem;
+    font-size: 3rem; /* taille augmentée */
+    color: #888;
     cursor: pointer;
     user-select: none;
+    margin-top: 1rem;
     transition: all 0.3s ease;
 }
 
@@ -413,19 +430,25 @@ main {
 }
 
 .star-rating label {
-    transition: color 0.3s, transform 0.2s;
+    transition: color 0.25s ease, transform 0.2s ease;
 }
 
 .star-rating label:hover,
 .star-rating label:hover ~ label {
     color: #fbbf24;
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .star-rating input:checked ~ label {
     color: #fbbf24;
-    text-shadow: 0 0 15px rgba(251,191,36,0.7);
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
 }
+
+/* Correction de la direction des étoiles (gauche à droite) */
+.star-rating {
+    direction: ltr;
+}
+
 
 /* ---------- PROGRESS BAR ---------- */
 .progress-container {
