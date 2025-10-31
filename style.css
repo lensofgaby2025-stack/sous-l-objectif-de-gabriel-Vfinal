@@ -450,7 +450,7 @@ footer p {
     font-size: 0.9rem;
     opacity: 0.8;
 }
-/* ---------- À PROPOS (photo en dessous + texte aéré) ---------- */
+/* ---------- À PROPOS (photo en dessous + texte aéré et justifié) ---------- */
 .about {
     text-align: center;
     padding: 3rem 1.5rem;
@@ -464,23 +464,20 @@ footer p {
     color: #ffffff;
 }
 
-.about-text {
+.about p {
     text-align: justify;
     font-size: 1.1rem;
     line-height: 1.9;
     color: #e5e7eb;
-    margin-bottom: 2.5rem;
-}
-
-.about-text p {
     margin-bottom: 1.2rem;
 }
 
-/* Photo centrée sous le texte */
+/* Photo centrée en dessous du texte */
 .about-photo {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .about-photo img {
