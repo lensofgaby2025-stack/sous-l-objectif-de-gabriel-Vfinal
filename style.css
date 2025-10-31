@@ -152,7 +152,9 @@ main {
 .contact-photo {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 3rem;
+  width: 100%;
 }
 
 .contact-photo img {
@@ -161,6 +163,18 @@ main {
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   border: 4px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-photo img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(77, 166, 255, 0.3);
+}
+
+/* Pour s'assurer que l'image reste bien après le formulaire */
+.contact-form .contact-photo {
+  order: 99;
+  margin-top: 3rem;
 }
 
 /* ========== BOUTON ENVOYER ========== */
