@@ -537,3 +537,31 @@ footer p {
         filter: blur(0);
     }
 }
+/* ---------- Apparition fluide et homogène pour toutes les sections principales ---------- */
+main section {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: pageFadeIn 1s ease-out forwards;
+}
+
+/* Animation clé */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Pour un effet un peu plus progressif entre sections longues */
+main section:nth-of-type(2) {
+    animation-delay: 0.2s;
+}
+main section:nth-of-type(3) {
+    animation-delay: 0.4s;
+}
