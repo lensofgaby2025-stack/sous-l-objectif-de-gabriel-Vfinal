@@ -338,3 +338,61 @@ a:hover {
   .option-card { padding: 1.5rem; }
   .contact-photo img { max-width: 250px; }
 }
+/* ========== PAGE À PROPOS ========== */
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #f1f5ff;
+  backdrop-filter: blur(10px);
+}
+
+.about-container h2 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e0e7ff;
+  text-align: justify;
+  margin-bottom: 1.5rem;
+}
+
+/* Image du photographe */
+.about-container img {
+  display: block;
+  margin: 2rem auto 0 auto;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 15px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-container img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(77, 166, 255, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-container img {
+    max-width: 300px;
+  }
+}
