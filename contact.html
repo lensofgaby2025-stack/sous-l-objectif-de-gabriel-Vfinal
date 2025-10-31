@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - L'Objectif de Gabriel</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -13,55 +12,54 @@
             <h1>L'Objectif de Gabriel</h1>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
-                <li><a href="rdv.html">Prendre RDV</a></li>
-                <li><a href="cliches-favoris.html">Mes Clichés Favoris</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="contact">
-            <h2>Contactez-nous</h2>
-            <p>Envoyez-nous un message pour discuter de votre projet photo.</p>
-            <form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form" id="contactForm">
-                <input type="text" name="nom" placeholder="Votre nom" required>
-                <input type="text" name="lieu" placeholder="Lieu du projet (ex. ville ou salle)" required>
-                <input type="tel" name="telephone" placeholder="Votre numéro de téléphone (ex. 06 XX XX XX XX)" required>
-                <input type="email" name="email" placeholder="Votre email (optionnel)">
+            <h2>Contactez-moi</h2>
+            <p>Une question, une demande de shooting ou un projet à discuter ? Remplissez le formulaire ci-dessous :</p>
 
-                <label>Sélectionnez les styles de photo qui vous intéressent :</label>
+            <form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form" id="contactForm">
+                <label for="name">Nom complet *</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+
+                <label for="email">Adresse e-mail *</label>
+                <input type="email" id="email" name="_replyto" placeholder="Votre adresse e-mail" required>
+
+                <label for="message">Votre message *</label>
+                <textarea id="message" name="message" rows="5" placeholder="Décrivez votre demande" required></textarea>
+
+                <label>Type de shooting souhaité *</label>
                 <div class="checkboxes">
-                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Pub"> 📸 Shooting Pub</label>
-                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Événement"> 🎉 Shooting Événement</label>
-                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Personnel"> 👤 Shooting Personnel</label>
-                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Mariage"> 💒 Mariage</label>
-                    <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Événement"> 🎊 Événement</label>
+                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Shooting Publicitaire"> 📸 Shooting Pub</label>
+                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Shooting Événementiel"> 🎉 Shooting Événement</label>
+                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Shooting Personnel"> 👤 Shooting Personnel</label>
+                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Mariage"> 💒 Mariage</label>
+                    <label class="checkbox-label"><input type="checkbox" name="shooting" value="Événement"> 🎊 Événement</label>
                 </div>
 
-                <textarea name="message" placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..." rows="5" required></textarea>
-
-                <label>Notez votre intérêt pour nos services :</label>
+                <label>Votre expérience globale :</label>
                 <div class="star-rating">
-                    <input type="radio" id="star1" name="note" value="1" /><label for="star1">⭐</label>
-                    <input type="radio" id="star2" name="note" value="2" /><label for="star2">⭐</label>
-                    <input type="radio" id="star3" name="note" value="3" /><label for="star3">⭐</label>
-                    <input type="radio" id="star4" name="note" value="4" /><label for="star4">⭐</label>
-                    <input type="radio" id="star5" name="note" value="5" /><label for="star5">⭐</label>
+                    <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
                 </div>
 
                 <button type="submit" class="btn">Envoyer</button>
+                <p id="formMessage" class="form-message"></p>
             </form>
-
-            <div class="contact-img">
-                <img src="images/contact-style.jpg" alt="Illustration contact photographie">
-            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 L'Objectif de Gabriel. Tous droits réservés.</p>
+        <p>© 2025 L'Objectif de Gabriel - Tous droits réservés.</p>
     </footer>
 
     <script src="script.js"></script>
