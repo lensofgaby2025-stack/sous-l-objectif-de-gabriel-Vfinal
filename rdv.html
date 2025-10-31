@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prendre RDV - L'Objectif de Gabriel</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prendre RDV - L'Objectif de Gabriel</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <h1>L'Objectif de Gabriel</h1>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="rdv.html">Prendre RDV</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <h1>L'Objectif de Gabriel</h1>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À Propos</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="rdv.html" class="active">Prendre RDV</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="rdv">
-            <h2>Prendre Rendez-vous</h2>
-            <p>Choisissez une date pour votre shooting ou événement. Réservez directement via Koalendar ci-dessous.</p>
-            
-            <h3>Réservez directement</h3>
-            <iframe src="https://koalendar.com/e/meet-with-gabriel-87" width="100%" height="600" frameborder="0"></iframe>
-        </section>
-    </main>
+  <main>
+    <section class="rdv about-container">
+      <h2>Prendre Rendez-vous</h2>
+      <p>Choisissez une date pour votre shooting ou événement. Réservez directement via Koalendar ci-dessous.</p>
+      
+      <h3>Réservez directement</h3>
+      <div class="koalendar-container">
+        <iframe 
+          src="https://koalendar.com/e/meet-with-gabriel-87?embed=true" 
+          frameborder="0" 
+          width="100%" 
+          height="850" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2023 L'Objectif de Gabriel. Tous droits réservés.</p>
-    </footer>
+  <footer>
+    <p>© 2025 L'Objectif de Gabriel - Tous droits réservés.</p>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
