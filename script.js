@@ -145,3 +145,42 @@ document.addEventListener('DOMContentLoaded', function() {
         if (note) console.log('Note envoyée : ' + note.value + ' étoiles');
     });
 });
+// ---------- ANIMATION ENVOI FORMULAIRE ----------
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".contact-form");
+    const submitBtn = form?.querySelector(".btn");
+
+    if (form && submitBtn) {
+        form.addEventListener("submit", (e) => {
+            // Si tu veux garder l’envoi réel vers formspree, supprime la ligne suivante :
+            e.preventDefault(); 
+
+            // Sauvegarde du texte original
+            const originalText = submitBtn.textContent;
+
+            // Animation d'envoi
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="loading-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </span> Envoi... 
+            `;
+            submitBtn.classList.add("sending");
+
+            // Simule un délai de 2 secondes (tu peux ajuster)
+            setTimeout(() => {
+                submitBtn.innerHTML = "✅ Message envoyé !";
+                submitBtn.classList.remove("sending");
+                submitBtn.classList.add("sent");
+
+                // Retour à l’état normal après 2 secondes
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove("sent");
+                    form.reset();
+                }, 2000);
+            }, 2000);
+        });
+    }
+});
