@@ -223,3 +223,26 @@ document.querySelectorAll('.btn[type="submit"]').forEach(btn => {
         }, 2500);
     });
 });
+/* ---------- FORMULAIRE CONTACT (envoi + reset) ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    if (!form) return; // Sécurité : si pas de formulaire sur la page, on arrête ici
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" }
+        });
+
+        if (response.ok) {
+            alert("📸 Merci ! Votre message a bien été envoyé.");
+            form.reset(); // Vide tous les champs
+        } else {
+            alert("⚠️ Oups, une erreur est survenue. Réessayez plus tard.");
+        }
+    });
+});
