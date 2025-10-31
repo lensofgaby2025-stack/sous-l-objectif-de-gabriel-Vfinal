@@ -565,9 +565,10 @@ main section {
     opacity: 0;
     transform: translateY(40px);
     animation: pageFadeIn 1s ease-out forwards;
+    animation-fill-mode: forwards; /* ✅ Empêche la disparition après l'animation */
 }
 
-/* Animation clé */
+/* ---------- Animation clé ---------- */
 @keyframes pageFadeIn {
     from {
         opacity: 0;
@@ -581,10 +582,11 @@ main section {
     }
 }
 
-/* Pour un effet un peu plus progressif entre sections longues */
+/* ---------- Pour un effet un peu plus progressif entre sections longues ---------- */
 main section:nth-of-type(2) {
     animation-delay: 0.2s;
 }
+
 main section:nth-of-type(3) {
     animation-delay: 0.4s;
 }
