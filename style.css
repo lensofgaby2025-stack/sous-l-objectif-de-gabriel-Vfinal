@@ -340,3 +340,61 @@ footer p {
   left: var(--x);
   transition: 0s;
 }
+/* --- Harmonisation des nouveaux champs du formulaire --- */
+.contact-form label {
+  align-self: flex-start;
+  font-weight: 600;
+  color: #e0e7ff;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #c7d2fe;
+  font-size: 0.95rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 10px rgba(77,166,255,0.4);
+  transform: scale(1.01);
+}
+
+/* --- Bouton Envoyer plus naturel et fluide --- */
+.contact-form .btn {
+  margin-top: 20px;
+  background: #4da6ff;
+  color: #fff;
+  font-size: 1.05rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(77,166,255,0.25);
+}
+
+.contact-form .btn:hover {
+  background: #338ee6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(51,142,230,0.35);
+}
