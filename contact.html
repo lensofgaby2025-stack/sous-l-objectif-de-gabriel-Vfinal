@@ -27,34 +27,35 @@
             <p>Remplissez le formulaire ci-dessous pour discuter de votre projet photo. Tous les champs avec * sont obligatoires.</p>
 
 <form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form">
-    <input type="text" name="nom" placeholder="Votre nom" required>
-    <input type="text" name="lieu" placeholder="Lieu du projet (ex. ville ou salle)" required>
-    <input type="tel" name="telephone" placeholder="Votre numéro de téléphone (ex. 06 XX XX XX XX)" required>
-    <input type="email" name="email" placeholder="Votre email" optionel>
+    <input type="text" name="nom" placeholder="Votre nom *" required>
+    <input type="text" name="lieu" placeholder="Lieu du projet (ex. ville ou salle) *" required>
+    <input type="tel" name="telephone" placeholder="Votre numéro de téléphone (ex. 06 XX XX XX XX) *" required>
+    <input type="email" name="email" placeholder="Votre email (optionnel)">
 
     <label>Sélectionnez les styles de photo qui vous intéressent :</label>
     <div class="checkboxes">
-        <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Pub"> 📸 Shooting Pub</label>
+        <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Pub" required> 📸 Shooting Pub</label>
         <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Événement"> 🎉 Shooting Événement</label>
         <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Shooting Personnel"> 👤 Shooting Personnel</label>
         <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Mariage"> 💒 Mariage</label>
         <label class="checkbox-label"><input type="checkbox" name="styles[]" value="Événement"> 🎊 Événement</label>
     </div>
-<p class="checkbox-error-message">⚠️ Veuillez sélectionner au moins un style de photo.</p>
+    <p class="checkbox-error-message" style="display:none;">⚠️ Veuillez sélectionner au moins un style de photo.</p>
 
-    <textarea name="message" placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..." rows="5" optionel></textarea>
+    <textarea name="message" placeholder="Dites-nous plus sur votre projet (budget, date approximative, idées spécifiques)..." rows="5"></textarea>
 
     <label>Notez votre intérêt pour nos services :</label>
     <div class="star-rating">
-        <input type="radio" id="star5" name="note" value="5"><label for="star5">★</label>
-        <input type="radio" id="star4" name="note" value="4"><label for="star4">★</label>
-        <input type="radio" id="star3" name="note" value="3"><label for="star3">★</label>
-        <input type="radio" id="star2" name="note" value="2"><label for="star2">★</label>
         <input type="radio" id="star1" name="note" value="1"><label for="star1">★</label>
+        <input type="radio" id="star2" name="note" value="2"><label for="star2">★</label>
+        <input type="radio" id="star3" name="note" value="3"><label for="star3">★</label>
+        <input type="radio" id="star4" name="note" value="4"><label for="star4">★</label>
+        <input type="radio" id="star5" name="note" value="5"><label for="star5">★</label>
     </div>
 
     <button type="submit" class="btn">Envoyer</button>
 </form>
+
 
             <div class="contact-img">
                 <img src="images/contact-style.jpg" alt="Illustration de contact - photographie">
