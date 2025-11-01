@@ -1,140 +1,101 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mariage - L'Objectif de Gabriel</title>
-    <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="galerie.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - L'Objectif de Gabriel</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <h1>L'Objectif de Gabriel</h1>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="about.html">À Propos</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="rdv.html">Prendre RDV</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <h1>L'Objectif de Gabriel</h1>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="about.html">À propos</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="rdv.html">Prendre RDV</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <h2>Photographie de Mariage</h2>
-            <p>Des clichés émouvants pour votre plus beau jour. De la préparation à la fête, chaque moment compté.</p>
-        </section>
+  <main>
+    <section class="contact about-container">
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2>Contactez-moi</h2>
+          <p>Une question, une demande de shooting ou un projet à discuter ? Remplissez le formulaire ci-dessous :</p>
 
-        <section class="galerie">
-            <h2>Galerie des evenement </h2>
-            <div class="corkboard">
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement1.jpg" alt="Couple marié en extérieur">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement2.jpg" alt="Préparation de la mariée">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement3.jpg" alt="Échange d'anneaux">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement4.jpg" alt="Danse des mariés">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement5.jpg" alt="Cérémonie intime">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement6.jpg" alt="Photos de groupe">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement7.jpg" alt="Coucher de soleil mariage">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement8.jpg" alt="Dîner festif">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement9.jpg" alt="Baiser des mariés">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement10.jpg" alt="Décoration florale">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement11.jpg" alt="Mariée seule portrait">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement12.jpg" alt="Marié en costume">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement13.jpg" alt="Fête dansante">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement14.jpg" alt="Détails alliance">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <div class="polaroid">
-                    <div class="photo-frame">
-                        <img src="images/evenement/evenement15.jpg" alt="Fin de soirée émouvante">
-                    </div>
-                    <div class="pin"></div>
-                </div>
-                <!-- Polaroid final grand et visible (solo) -->
-                <div class="polaroid large-empty">
-                    <div class="empty-text">Bientôt vos photos ici – Contactez-nous pour immortaliser vos moments uniques ! 📸</div>
-                    <a href="contact.html" class="btn small">Ajouter vos souvenirs</a>
-                    <div class="pin"></div>
-                </div>
-            </div>
-            <!-- Bouton devis supprimé -->
-        </section>
-    </main>
+         <form action="https://formspree.io/f/xrbyoeyz" method="POST" class="contact-form" id="contactForm">
+  <label for="firstname">Prénom *</label>
+  <input type="text" id="firstname" name="firstname" placeholder="Votre prénom (obligatoire)" required>
 
-    <footer>
-        <p>&copy; 2023 L'Objectif de Gabriel. Tous droits réservés.</p>
-    </footer>
+  <label for="name">Nom *</label>
+  <input type="text" id="name" name="name" placeholder="Votre nom (obligatoire)" required>
 
-    <script src="script.js"></script>
+  <label for="phone">Numéro de téléphone *</label>
+  <input type="tel" id="phone" name="phone" placeholder="Votre numéro de téléphone (obligatoire)" required>
+
+  <label for="email">Adresse e-mail</label>
+  <input type="email" id="email" name="_replyto" placeholder="Votre adresse e-mail (optionnel)">
+
+  <div class="form-group">
+    <label for="shooting-type">Type(s) de shooting souhaité(s)</label>
+    <div class="shooting-options">
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting[]" value="pub">
+        <div class="option-card">📸 Shooting Publicitaire</div>
+      </label>
+
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting[]" value="event">
+        <div class="option-card">🎉 Shooting Événementiel</div>
+      </label>
+
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting[]" value="mariage">
+        <div class="option-card">💍 Shooting Mariage</div>
+      </label>
+
+      <label class="shooting-option">
+        <input type="checkbox" name="shooting[]" value="perso">
+        <div class="option-card">👤 Shooting Personnel</div>
+      </label>
+    </div>
+  </div>
+
+  <label for="message">Décrivez votre projet </label>
+  <textarea id="message" name="message" rows="5" placeholder="Parlez-moi un peu de votre projet : type de séance, lieu, ambiance, nombre de personnes, envies..." ></textarea>
+
+  <button type="submit" class="btn">Envoyer le message</button>
+  <p id="formMessage" class="form-message"></p>
+
+  <div class="contact-photo">
+    <img src="images/contact-style.jpg" alt="Photo de contact">
+  </div>
+</form>
+
+  <label for="message">Décrivez votre projet *</label>
+  <textarea id="message" name="message" rows="5" placeholder="Parlez-moi un peu de votre projet : type de séance, lieu, ambiance, nombre de personnes, envies..." required></textarea>
+
+  <button type="submit" class="btn">Envoyer le message</button>
+  <p id="formMessage" class="form-message"></p>
+
+  <div class="contact-photo">
+    <img src="images/contact-style.jpg" alt="Photo de contact">
+  </div>
+</form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 L'Objectif de Gabriel - Tous droits réservés.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
