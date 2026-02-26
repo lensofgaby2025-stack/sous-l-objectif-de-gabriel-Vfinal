@@ -479,3 +479,32 @@ a:hover {
     height: 700px;
   }
 }
+/* Conteneur logo + titre */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* espace entre le logo et le texte */
+}
+
+/* Taille du logo */
+.logo {
+  width: 100px;  /* tu peux augmenter ou diminuer selon ce que tu veux */
+  height: auto;
+}
+
+/* Ajustement du titre pour que ça soit aligné verticalement */
+.logo-container h1 {
+  font-size: 1.5rem; /* adapte selon ton design */
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .logo {
+    width: 30px;
+  }
+  .logo-container h1 {
+    font-size: 1.2rem;
+  }
+}
