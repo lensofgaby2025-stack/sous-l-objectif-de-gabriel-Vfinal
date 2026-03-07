@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Objectif de Gabriel — Photographe France</title>
+
+  <!-- SEO META -->
+  <meta name="description" content="Gabriel, photographe professionnel à Paris. Shooting publicitaire, évènementiel, portraits et sélection personnelle. Capturer l'instant, raconter votre histoire.">
+  <meta name="keywords" content="photographe paris, shooting publicitaire, photographe événementiel, portrait, photographe professionnel france">
+  <meta name="author" content="Gabriel — L'Objectif de Gabriel">
+  <meta name="robots" content="index, follow">
+
+  <!-- OPEN GRAPH (partage réseaux sociaux) -->
+  <meta property="og:title" content="L'Objectif de Gabriel — Photographe">
+  <meta property="og:description" content="Shooting publicitaire, évènementiel & portraits. Paris & France.">
+  <meta property="og:image" content="images/logo/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="L'Objectif de Gabriel — Photographe">
+  <meta name="twitter:description" content="Shooting publicitaire, évènementiel & portraits. Paris & France.">
+  <meta name="twitter:image" content="images/logo/logo.jpg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================
+     LOADER
+============================ -->
+<div id="loader">
+  <div class="loader-inner">
+    <img src="images/logo/logo.jpg" alt="L'Objectif de Gabriel" class="loader-logo">
+    <div class="loader-title">L'<span>O</span>bjectif de Gabriel</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- Curseur personnalisé -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<div class="page-overlay" id="overlay"></div>
+
+<!-- ============================
+     LIGHTBOX
+============================ -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fermer">✕</button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="Photo précédente">‹</button>
+  <button class="lightbox-next" id="lightbox-next" aria-label="Photo suivante">›</button>
+  <div class="lightbox-counter" id="lightbox-counter">1 / 12</div>
+  <div class="lightbox-img-wrap">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<!-- ============================
+     NAV
+============================ -->
+<nav id="navbar">
+  <a class="nav-logo" onclick="showPage('home')">
+    <img src="images/logo/logo.jpg" alt="Logo" class="nav-logo-img">
+    <span class="nav-logo-text">L'<span>O</span>bjectif de Gabriel</span>
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')">Accueil</a></li>
+    <li><a onclick="showPage('about')">À propos</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
+    <li><a onclick="showPage('rdv')">Rendez-vous</a></li>
+    <li>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="nav-instagram" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="nav-instagram" aria-label="Linktree">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>
+      </a>
+    </li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobile-menu">
+  <a onclick="showPage('home');toggleMenu()">Accueil</a>
+  <a onclick="showPage('about');toggleMenu()">À propos</a>
+  <a onclick="showPage('contact');toggleMenu()">Contact</a>
+  <a onclick="showPage('rdv');toggleMenu()">Rendez-vous</a>
+  <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="mobile-instagram">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+    </svg>
+    Instagram
+  </a>
+  <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="mobile-instagram">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>
+    Linktree
+  </a>
+</div>
+
+<!-- ============================
+     PAGE: ACCUEIL
+============================ -->
+<div class="page active" id="page-home">
+  <div class="home-bg"></div>
+  <div class="home-content">
+    <div class="home-eyebrow">Photographe — France</div>
+    <h1 class="home-title">L'Objectif<br><em>de Gabriel</em></h1>
+    <p class="home-subtitle">Capturer l'instant. Raconter votre histoire.</p>
+    <div class="home-categories">
+      <button class="cat-btn" id="btn-publicitaire" onclick="showGallery('publicitaire')">
+        <div class="cat-btn-bg" id="bg-publicitaire"></div>
+        <span class="cat-btn-number">01</span>
+        <span class="cat-btn-title">Shooting<br><em>publicitaire</em></span>
+        <span class="cat-btn-desc">Produits, marques & campagnes</span>
+        <span class="cat-btn-arrow">→</span>
+      </button>
+      <button class="cat-btn" id="btn-evenementiel" onclick="showGallery('evenementiel')">
+        <div class="cat-btn-bg" id="bg-evenementiel"></div>
+        <span class="cat-btn-number">02</span>
+        <span class="cat-btn-title">Évènementiel</span>
+        <span class="cat-btn-desc">Soirées, galas & événements</span>
+        <span class="cat-btn-arrow">→</span>
+      </button>
+      <button class="cat-btn" id="btn-shooting" onclick="showGallery('shooting')">
+        <div class="cat-btn-bg" id="bg-shooting"></div>
+        <span class="cat-btn-number">03</span>
+        <span class="cat-btn-title">Shooting<br><em>personnel</em></span>
+        <span class="cat-btn-desc">Portraits & studio</span>
+        <span class="cat-btn-arrow">→</span>
+      </button>
+      <button class="cat-btn" id="btn-favoris" onclick="showGallery('favoris')">
+        <div class="cat-btn-bg" id="bg-favoris"></div>
+        <span class="cat-btn-number">04</span>
+        <span class="cat-btn-title">Mes clichés<br><em>favoris</em></span>
+        <span class="cat-btn-desc">Une sélection personnelle</span>
+        <span class="cat-btn-arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- TÉMOIGNAGES -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <div class="testimonials-eyebrow">Témoignages</div>
+      <h2 class="testimonials-heading">Ce qu'ils <em>disent</em></h2>
+      <div class="testimonials-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Super photographe à l'écoute et très professionnel! »</p>
+          <div class="testi-author">
+            <div class="testi-name">Anna Guiffard</div>
+            <div class="testi-role"></div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Les photos sont canons franchement merci beaucoup »</p>
+          <div class="testi-author">
+            <div class="testi-name">halto.hd</div>
+            <div class="testi-role">Saxophoniste, guitariste & Chanteur </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">« Gabriel est discret, efficace et l'œil d'un artiste. Nos photos d'événement ont eu un succès fou sur les réseaux. On le rappelle sans hésiter. »</p>
+          <div class="testi-author">
+            <div class="testi-name"></div>
+            <div class="testi-role"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo/logo.jpg" alt="Logo" class="footer-logo-img">
+      L'<span>O</span>bjectif de Gabriel
+    </div>
+    <div class="footer-center">
+      <a class="footer-link" onclick="showPage('mentions')">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>Instagram
+      </a>
+      <span class="footer-sep">·</span>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>Linktree
+      </a>
+    </div>
+    <div class="footer-copy">© 2024 L'Objectif de Gabriel. Tous droits réservés.</div>
+  </footer>
+</div>
+
+<!-- ============================
+     PAGE: GALERIE
+============================ -->
+<div class="page gallery-page" id="page-gallery">
+  <div class="gallery-header">
+    <div class="gallery-header-left">
+      <div class="gallery-back" onclick="showPage('home')">← Retour</div>
+      <h2 class="gallery-title" id="gallery-title">Shooting publicitaire</h2>
+    </div>
+    <div class="gallery-count" id="gallery-count">Galerie — 2024</div>
+  </div>
+  <div class="gallery-quote reveal" id="gallery-quote">
+    <blockquote id="gallery-quote-text"></blockquote>
+    <cite id="gallery-quote-cite"></cite>
+  </div>
+  <div class="gallery-masonry" id="gallery-masonry"></div>
+
+  <!-- Bouton retour en haut -->
+  <button class="back-to-top" id="back-to-top" aria-label="Retour en haut">↑</button>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo/logo.jpg" alt="Logo" class="footer-logo-img">
+      L'<span>O</span>bjectif de Gabriel
+    </div>
+    <div class="footer-center">
+      <a class="footer-link" onclick="showPage('mentions')">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>Instagram
+      </a>
+      <span class="footer-sep">·</span>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>Linktree
+      </a>
+    </div>
+    <div class="footer-copy">© 2024 L'Objectif de Gabriel. Tous droits réservés.</div>
+  </footer>
+</div>
+
+<!-- ============================
+     PAGE: À PROPOS
+============================ -->
+<div class="page" id="page-about">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-photo-frame">
+        <img src="images/about/portrait.jpg" alt="Gabriel" class="about-photo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="about-photo-main" style="display:none"><span>Photo de Gabriel</span></div>
+        <div class="frame-border"></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="about-eyebrow reveal">À propos</div>
+      <h2 class="about-heading reveal">Bonjour, je suis<br><em>Gabriel</em></h2>
+      <p class="about-body reveal">
+        Passionné par la lumière et l'émotion, je capture depuis plus de 3 ans les moments qui comptent vraiment. Qu'il s'agisse de l'énergie d'un événement, d'une campagne publicitaire ou de la singularité d'un portrait, chaque cliché raconte une histoire.
+      </p>
+      <p class="about-body reveal">
+        Mon approche est à la fois discrète et artistique — je m'efface pour que vos émotions parlent d'elles-mêmes, tout en apportant un œil créatif sur chaque composition.
+      </p>
+      <div class="about-divider reveal"></div>
+      <div class="about-stats reveal">
+        <div class="about-stat">
+          <div class="about-stat-number">3+</div>
+          <div class="about-stat-label">Ans d'expérience</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">50+</div>
+          <div class="about-stat-label">Séances réalisées</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">15+</div>
+          <div class="about-stat-label">Projets couverts</div>
+        </div>
+
+      <div class="about-contact reveal">
+        <div class="about-contact-item">
+          <span class="about-contact-icon">✉</span>
+          lensof.gaby2025@gmail.com
+        </div>
+        <div class="about-contact-item">
+          <span class="about-contact-icon">✆</span>
+          <a href="tel:+33762987283" class="about-contact-link">07 62 98 72 83</a>
+        </div>
+        <div class="about-contact-item">
+          <span class="about-contact-icon">◈</span>
+          <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="about-contact-link">@lobjectif_de_gabriel</a>
+        </div>
+        <div class="about-contact-item">
+          <span class="about-contact-icon">⊹</span>
+          <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="about-contact-link">Linktree</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo/logo.jpg" alt="Logo" class="footer-logo-img">
+      L'<span>O</span>bjectif de Gabriel
+    </div>
+    <div class="footer-center">
+      <a class="footer-link" onclick="showPage('mentions')">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>Instagram
+      </a>
+      <span class="footer-sep">·</span>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>Linktree
+      </a>
+    </div>
+    <div class="footer-copy">© 2024 L'Objectif de Gabriel. Tous droits réservés.</div>
+  </footer>
+</div>
+
+<!-- ============================
+     PAGE: CONTACT
+============================ -->
+<div class="page" id="page-contact">
+  <div class="contact-inner">
+    <div class="contact-eyebrow">Contact</div>
+    <h2 class="contact-heading">Parlons de<br><em>votre projet</em></h2>
+    <p class="contact-sub">Remplissez le formulaire ci-dessous et je vous recontacte sous 48h.</p>
+    <div class="contact-info-bar">
+      <a href="mailto:lensof.gaby2025@gmail.com" class="contact-info-item">
+        <span class="contact-info-icon">✉</span>
+        <span>lensof.gaby2025@gmail.com</span>
+      </a>
+      <a href="tel:+33762987283" class="contact-info-item">
+        <span class="contact-info-icon">✆</span>
+        <span>07 62 98 72 83</span>
+      </a>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="contact-info-item">
+        <span class="contact-info-icon">◈</span>
+        <span>@lobjectif_de_gabriel</span>
+      </a>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="contact-info-item">
+        <span class="contact-info-icon">⊹</span>
+        <span>Linktree</span>
+      </a>
+    </div>
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrbyoeyz" method="POST">
+      <div class="form-group">
+        <label class="form-label">Prénom *</label>
+        <input type="text" name="prenom" class="form-input" placeholder="Marie" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nom *</label>
+        <input type="text" name="nom" class="form-input" placeholder="Dupont" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Téléphone *</label>
+        <input type="tel" name="telephone" class="form-input" placeholder="+33 6 12 34 56 78" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email *</label>
+        <input type="email" name="email" class="form-input" placeholder="marie@exemple.fr" required>
+      </div>
+      <div class="form-shooting-group form-group full">
+        <span class="form-shooting-label">Type de shooting souhaité *</span>
+        <div class="form-checkboxes" id="shooting-checkboxes">
+          <label class="form-check-label" onclick="toggleCheck(this)">
+            <input type="checkbox" name="shooting[]" value="Shooting publicitaire">
+            <span class="form-check-box">✓</span> Shooting publicitaire
+          </label>
+          <label class="form-check-label" onclick="toggleCheck(this)">
+            <input type="checkbox" name="shooting[]" value="Évènementiel">
+            <span class="form-check-box">✓</span> Évènementiel
+          </label>
+          <label class="form-check-label" onclick="toggleCheck(this)">
+            <input type="checkbox" name="shooting[]" value="Shooting personnel">
+            <span class="form-check-box">✓</span> Shooting personnel
+          </label>
+          <label class="form-check-label" onclick="toggleCheck(this)">
+            <input type="checkbox" name="shooting[]" value="Portrait">
+            <span class="form-check-box">✓</span> Portrait
+          </label>
+          <label class="form-check-label" onclick="toggleCheck(this)">
+            <input type="checkbox" name="shooting[]" value="Famille">
+            <span class="form-check-box">✓</span> Famille
+          </label>
+          <label class="form-check-label" onclick="toggleCheck(this)">
+            <input type="checkbox" name="shooting[]" value="Autre">
+            <span class="form-check-box">✓</span> Autre
+          </label>
+        </div>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Message</label>
+        <input type="text" name="message" class="form-input" placeholder="Dites-moi en quelques mots votre projet...">
+      </div>
+      <button type="submit" class="btn-submit"><span>Envoyer ma demande</span></button>
+    </form>
+    <div id="form-success" style="display:none; padding:40px 0; font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:#e8d5b0;">
+      Merci ! Votre message a bien été envoyé. Je vous recontacte très bientôt.
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo/logo.jpg" alt="Logo" class="footer-logo-img">
+      L'<span>O</span>bjectif de Gabriel
+    </div>
+    <div class="footer-center">
+      <a class="footer-link" onclick="showPage('mentions')">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>Instagram
+      </a>
+      <span class="footer-sep">·</span>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>Linktree
+      </a>
+    </div>
+    <div class="footer-copy">© 2024 L'Objectif de Gabriel. Tous droits réservés.</div>
+  </footer>
+</div>
+
+<!-- ============================
+     PAGE: RENDEZ-VOUS
+============================ -->
+<div class="page" id="page-rdv">
+  <div class="rdv-inner">
+    <div class="rdv-eyebrow">Calendrier</div>
+    <h2 class="rdv-heading">Prendre<br><em>rendez-vous</em></h2>
+    <p class="rdv-sub">Choisissez un créneau directement dans mon agenda.</p>
+    <div class="rdv-frame-wrap">
+      <iframe src="https://koalendar.com/e/meet-with-gabriel-87?embed=true"
+              title="Prendre rendez-vous avec Gabriel"
+              frameborder="0"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo/logo.jpg" alt="Logo" class="footer-logo-img">
+      L'<span>O</span>bjectif de Gabriel
+    </div>
+    <div class="footer-center">
+      <a class="footer-link" onclick="showPage('mentions')">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>Instagram
+      </a>
+      <span class="footer-sep">·</span>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>Linktree
+      </a>
+    </div>
+    <div class="footer-copy">© 2024 L'Objectif de Gabriel. Tous droits réservés.</div>
+  </footer>
+</div>
+
+<!-- ============================
+     PAGE: MENTIONS LÉGALES
+============================ -->
+<div class="page" id="page-mentions">
+  <div class="mentions-inner">
+    <div class="mentions-back gallery-back" onclick="showPage('home')">← Retour</div>
+    <div class="mentions-eyebrow">Informations légales</div>
+    <h2 class="mentions-heading">Mentions <em>légales</em></h2>
+
+    <div class="mentions-section">
+      <h3>Éditeur du site</h3>
+      <p>L'Objectif de Gabriel<br>
+      Photographe professionnel indépendant<br>
+      Email : lensof.gaby2025@gmail.com<br>
+      Téléphone : +33 07 62 98 72 83<br>
+      SIRET : 991174020</p>
+    </div>
+
+    <div class="mentions-section">
+      <h3>Hébergement</h3>
+      <p>Ce site est hébergé par Gabriel chiotasso<br>
+      Adresse : 23 allée des houx herbignac<br></p>
+    </div>
+
+    <div class="mentions-section">
+      <h3>Propriété intellectuelle</h3>
+      <p>L'ensemble des photographies, textes, logos et contenus présents sur ce site sont la propriété exclusive de Gabriel et sont protégés par le droit d'auteur. Toute reproduction, distribution ou utilisation sans autorisation écrite préalable est strictement interdite.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h3>Données personnelles (RGPD)</h3>
+      <p>Les données collectées via le formulaire de contact (prénom, nom, téléphone, email) sont utilisées uniquement pour répondre à vos demandes. Elles ne sont ni vendues ni transmises à des tiers. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données en envoyant un email à lensof.gaby2025@gmail.com.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h3>Cookies</h3>
+      <p>Ce site n'utilise pas de cookies de traçage ou de publicité. Seuls des cookies techniques strictement nécessaires au bon fonctionnement du site peuvent être déposés.</p>
+    </div>
+
+    <div class="mentions-section">
+      <h3>Liens hypertextes</h3>
+      <p>Le site peut L'Objectif de Gabriel ne peut être tenu responsable du contenu de ces sites externes.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-logo">
+      <img src="images/logo/logo.jpg" alt="Logo" class="footer-logo-img">
+      L'<span>O</span>bjectif de Gabriel
+    </div>
+    <div class="footer-center">
+      <a class="footer-link" onclick="showPage('mentions')">Mentions légales</a>
+      <span class="footer-sep">·</span>
+      <a href="https://www.instagram.com/lobjectif_de_gabriel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>Instagram
+      </a>
+      <span class="footer-sep">·</span>
+      <a href="https://linktr.ee/Lobjectif_de_Gabriel2025?utm_source=linktree_profile_share&ltsid=1d1e6d68-5c99-417d-b60e-7faa1a11481b" target="_blank" class="footer-link footer-insta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M12 2v10M8 6l4-4 4 4M6 12h12M8 18l4 4 4-4M12 12v10"/></svg>Linktree
+      </a>
+    </div>
+    <div class="footer-copy">© 2024 L'Objectif de Gabriel. Tous droits réservés.</div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
